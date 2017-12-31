@@ -1,0 +1,66 @@
+# 4 admin，1 2 personnel, 3 5 12 head, 6 7 8 9 10 11 general
+
+# query specific employee
+# SELECT
+#   employee.id       AS id,
+#   employee.name     AS name,
+#   employee.password AS password,
+#   admin.employee_id AS administrator_id,
+#   personnel.employee_id AS personnel_id,
+#   d1.id AS belong_department_id,
+#   d1.name AS belong_department_name,
+#   d1.code AS belong_department_code,
+#   d2.id AS head_department_id,
+#   d2.name AS head_department_name,
+#   d2.code AS head_department_code
+# FROM (employee
+#   LEFT JOIN employee_administrator admin ON employee.id = admin.employee_id
+#   LEFT JOIN employee_personnel personnel ON employee.id = personnel.employee_id
+#   LEFT JOIN (employee_belong_department ebd INNER JOIN department d1 ON ebd.department_id = d1.id)
+#     ON employee.id = ebd.employee_id
+#   LEFT JOIN (employee_head_department ehd INNER JOIN department d2 ON ehd.department_id = d2.id)
+#     ON employee.id = ehd.employee_id) WHERE employee.id=2;
+
+
+# select all identity
+# SELECT
+#   employee.id       AS id,
+#   employee.name     AS name,
+#   employee.password AS password,
+#   admin.employee_id AS administrator_id,
+#   personnel.employee_id AS personnel_id,
+#   d1.id AS belong_department_id,
+#   d1.name AS belong_department_name,
+#   d1.code AS belong_department_code,
+#   d2.id AS head_department_id,
+#   d2.name AS head_department_name,
+#   d2.code AS head_department_code
+# FROM (employee
+#   LEFT JOIN employee_administrator admin ON employee.id = admin.employee_id)
+#   LEFT JOIN employee_personnel personnel ON employee.id = personnel.employee_id
+#   LEFT JOIN (employee_belong_department ebd INNER JOIN department d1 ON ebd.department_id = d1.id)
+#     ON employee.id = ebd.employee_id
+#   LEFT JOIN (employee_head_department ehd INNER JOIN department d2 ON ehd.department_id = d2.id)
+#     ON employee.id = ehd.employee_id;
+
+# select by head department
+SELECT
+#   employee.id       AS id,
+#   employee.name     AS name,
+#   employee.password AS password,
+#   admin.employee_id AS administrator_id,
+#   personnel.employee_id AS personnel_id,
+#   d1.id AS belong_department_id,
+#   d1.name AS belong_department_name,
+#   d1.code AS belong_department_code,
+#   d2.id AS head_department_id,
+#   d2.name AS head_department_name,
+#   d2.code AS head_department_code
+# FROM (employee
+#   LEFT JOIN employee_administrator admin ON employee.id = admin.employee_id)
+#   LEFT JOIN employee_personnel personnel ON employee.id = personnel.employee_id
+#   LEFT JOIN (employee_belong_department ebd INNER JOIN department d1 ON ebd.department_id = d1.id)
+#     ON employee.id = ebd.employee_id
+#   LEFT JOIN (employee_head_department ehd INNER JOIN department d2 ON ehd.department_id = d2.id)
+#     ON employee.id = ehd.employee_id WHERE d1.id=1;
+

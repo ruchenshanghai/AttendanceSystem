@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "ruchenshanghai",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "md5": "^2.2.1",
+    "moment": "^2.20.1",
+    "morgan": "^1.9.0",
+    "mysql": "^2.15.0",
+    "serve-favicon": "^2.4.5"
+  }
+}

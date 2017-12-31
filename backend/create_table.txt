@@ -1,0 +1,71 @@
+CREATE TABLE employee
+(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name NVARCHAR(255) NOT NULL,
+  password NVARCHAR(255) NOT NULL
+);
+CREATE TABLE department
+(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name NVARCHAR(255) NOT NULL UNIQUE,
+  code NVARCHAR(255) NOT NULL UNIQUE
+);
+CREATE TABLE employee_belong_department
+(
+  employee_id INT NOT NULL UNIQUE,
+  department_id INT NOT NULL,
+  FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE,
+  FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
+);
+CREATE TABLE employee_head_department
+(
+  employee_id INT NOT NULL UNIQUE,
+  department_id INT NOT NULL UNIQUE,
+  FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE,
+  FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
+);
+CREATE TABLE employee_personnel
+(
+  employee_id INT PRIMARY KEY,
+  FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE
+);
+CREATE TABLE employee_administrator
+(
+  employee_id INT PRIMARY KEY,
+  FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE
+);
+
+# log attributes: 
+id, employee_id, operate_type, operate_value
+CREATE TABLE log
+(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  employee_id INT NOT NULL,
+  operate_type VARCHAR(255) NOT NULL,
+  operate_value VARCHAR(1024) NOT NULL,
+  create_time DATETIME NOT NULL,
+  update_time DATETIME NOT NULL
+);
+
+
+
+# check_type: CHECK_IN_TIME or CHECK_OUT_TIME, the same day most one to one mapping
+CREATE TABLE employee_check
+(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  employee_id INT NOT NULL,
+  check_type VARCHAR(255) NOT NULL,
+  check_time DATETIME NOT NULL,
+  check_status BOOLEAN NOT NULL,
+  FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE
+);
+
+
+# setting
+CREATE TABLE setting (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL UNIQUE,
+  value VARCHAR(255) NOT NULL
+);
+INSERT INTO setting (name, value) VALUES ('CHECK_IN_TIME', '09:00:00');
+INSERT INTO setting (name, value) VALUES ('CHECK_OUT_TIME', '17:00:00');
