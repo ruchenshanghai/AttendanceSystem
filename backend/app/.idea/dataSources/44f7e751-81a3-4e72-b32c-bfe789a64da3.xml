@@ -1121,170 +1121,184 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="247" name="check_type">
+    <column id="276" parent="247" name="check_date">
       <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="277" parent="247" name="check_datetime">
+    <column id="277" parent="247" name="check_in_time">
       <Position>4</Position>
-      <DataType>datetime|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>time|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="247" name="check_status">
+    <column id="278" parent="247" name="check_out_time">
       <Position>5</Position>
-      <DataType>tinyint(1)|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>time|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="279" parent="247" name="employee_id">
-      <ColNames>employee_id</ColNames>
+    <column id="279" parent="247" name="check_in_status">
+      <Position>6</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="280" parent="247" name="check_out_status">
+      <Position>7</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="281" parent="247" name="employee_id">
+      <ColNames>employee_id
+check_date</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="280" parent="247" name="PRIMARY">
+    <key id="282" parent="247" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="281" parent="247" name="employee_check_ibfk_1">
+    <key id="283" parent="247" name="employee_id">
+      <ColNames>employee_id
+check_date</ColNames>
+      <UnderlyingIndexName>employee_id</UnderlyingIndexName>
+    </key>
+    <foreign-key id="284" parent="247" name="employee_check_ibfk_1">
       <ColNames>employee_id</ColNames>
       <RefSchemaName>attendance</RefSchemaName>
       <RefTableName>employee</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="282" parent="248" name="employee_id">
+    <column id="285" parent="248" name="employee_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="248" name="department_id">
+    <column id="286" parent="248" name="department_id">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="284" parent="248" name="employee_id">
+    <index id="287" parent="248" name="employee_id">
       <ColNames>employee_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="285" parent="248" name="department_id">
+    <index id="288" parent="248" name="department_id">
       <ColNames>department_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="286" parent="248" name="employee_id">
+    <key id="289" parent="248" name="employee_id">
       <ColNames>employee_id</ColNames>
       <UnderlyingIndexName>employee_id</UnderlyingIndexName>
     </key>
-    <key id="287" parent="248" name="department_id">
+    <key id="290" parent="248" name="department_id">
       <ColNames>department_id</ColNames>
       <UnderlyingIndexName>department_id</UnderlyingIndexName>
     </key>
-    <foreign-key id="288" parent="248" name="employee_head_department_ibfk_1">
+    <foreign-key id="291" parent="248" name="employee_head_department_ibfk_1">
       <ColNames>employee_id</ColNames>
       <RefSchemaName>attendance</RefSchemaName>
       <RefTableName>employee</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="289" parent="248" name="employee_head_department_ibfk_2">
+    <foreign-key id="292" parent="248" name="employee_head_department_ibfk_2">
       <ColNames>department_id</ColNames>
       <RefSchemaName>attendance</RefSchemaName>
       <RefTableName>department</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="290" parent="249" name="employee_id">
+    <column id="293" parent="249" name="employee_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="291" parent="249" name="PRIMARY">
+    <key id="294" parent="249" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>employee_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="292" parent="249" name="employee_personnel_ibfk_1">
+    <foreign-key id="295" parent="249" name="employee_personnel_ibfk_1">
       <ColNames>employee_id</ColNames>
       <RefSchemaName>attendance</RefSchemaName>
       <RefTableName>employee</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="293" parent="250" name="id">
+    <column id="296" parent="250" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="250" name="employee_id">
+    <column id="297" parent="250" name="employee_id">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="250" name="operate_type">
+    <column id="298" parent="250" name="operate_type">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="250" name="operate_value">
+    <column id="299" parent="250" name="operate_value">
       <Position>4</Position>
       <DataType>varchar(1024)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="250" name="create_time">
+    <column id="300" parent="250" name="create_time">
       <Position>5</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="250" name="update_time">
+    <column id="301" parent="250" name="update_time">
       <Position>6</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="299" parent="250" name="PRIMARY">
+    <key id="302" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="300" parent="251" name="id">
+    <column id="303" parent="251" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="251" name="name">
+    <column id="304" parent="251" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="251" name="value">
+    <column id="305" parent="251" name="value">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="303" parent="251" name="name">
+    <index id="306" parent="251" name="name">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="304" parent="251" name="PRIMARY">
+    <key id="307" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="305" parent="251" name="name">
+    <key id="308" parent="251" name="name">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>

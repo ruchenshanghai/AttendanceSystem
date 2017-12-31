@@ -26,8 +26,10 @@ let Router = function (router, absolute_path) {
           }
           let employeeChecks = await controller.getChecksFromEmployeeCheck();
           res.json({
-            logChecks: logChecks,
-            employeeChecks: employeeChecks
+            getRes: {
+              logChecks: logChecks,
+              employeeChecks: employeeChecks
+            }
           });
         } else if (req.session.user.personnelRight === true) {
           // get all checks from employee_check table
@@ -95,23 +97,33 @@ let Router = function (router, absolute_path) {
           let positiveReg = /^[0-9]+$/;
           try {
             let check_datetime = new Date(insertCheck.check_datetime);
-            if (!positiveReg.test(insertCheck.employee_id) || (insertCheck.check_type !== setting.CHECK_IN_NAME && insertCheck.check_type !== setting.CHECK_OUT_NAME) || check_datetime.toString() === 'Invalid Date') {
+            if (!positiveReg.test(insertCheck.employee_id) || (insertCheck.check_type !== 'IN' && insertCheck.check_type !== 'OUT') || check_datetime.toString() === 'Invalid Date') {
               res.json({
                 insertRes: 'format error'
               });
             } else {
-              // need insert
-              let insertRes;
-              if (insertCheck.check_type === setting.CHECK_IN_NAME) {
-                insertRes = await controller.checkInSpecifiedDatetime(insertCheck.employee_id, check_datetime);
+              // need check
+              if (insertCheck.check_type === 'IN') {
+                let checkInRes = await controller.checkInSpecifiedDatetime(insertCheck.employee_id, check_datetime);
+                log.insertLog(req.session.user.id, 'checkin', JSON.stringify({
+                  req: insertCheck,
+                  res: checkInRes
+                }));
+                console.log(JSON.stringify(checkInRes));
+                res.json({
+                  insertRes: checkInRes
+                });
               } else {
-                insertRes = await controller.checkOutSpecifiedDatetime(insertCheck.employee_id, check_datetime);
+                let checkOutRes = await controller.checkOutSpecifiedDatetime(insertCheck.employee_id, check_datetime);
+                log.insertLog(req.session.user.id, 'checkout', JSON.stringify({
+                  req: insertCheck,
+                  res: checkOutRes
+                }));
+                console.log(JSON.stringify(checkOutRes));
+                res.json({
+                  insertRes: checkOutRes
+                });
               }
-              insertCheck.res = insertRes;
-              log.insertLog(req.session.user.id, 'add_check', JSON.stringify(insertCheck));
-              res.json({
-                insertRes: insertRes
-              });
             }
           } catch (err) {
             console.log(JSON.stringify(err));
@@ -135,18 +147,20 @@ let Router = function (router, absolute_path) {
         if (req.session.user.adminRight === true) {
           let updateID = Number(req.params.id);
           let updateCheck = req.body;
-          updateCheck.check_status = Boolean(updateCheck.check_status);
+          updateCheck.check_in_status = Boolean(updateCheck.check_in_status);
+          updateCheck.check_out_status = Boolean(updateCheck.check_out_status);
           let positiveReg = /^[0-9]+$/;
           try {
-            let check_datetime = new Date(updateCheck.check_datetime);
-            if (updateID !== updateCheck.id || !positiveReg.test(updateCheck.id) || !positiveReg.test(updateCheck.employee_id) || (updateCheck.check_type !== setting.CHECK_IN_NAME && updateCheck.check_type !== setting.CHECK_OUT_NAME) || check_datetime.toString() === 'Invalid Date') {
+            updateCheck.check_in_datetime = new Date(updateCheck.check_in_datetime);
+            updateCheck.check_out_datetime = new Date(updateCheck.check_out_datetime);
+            if (updateID !== updateCheck.id || !positiveReg.test(updateCheck.id) || !positiveReg.test(updateCheck.employee_id) || updateCheck.check_in_datetime.toString() === 'Invalid Date' || updateCheck.check_out_datetime.toString() === 'Invalid Date') {
               res.json({
                 insertRes: 'format error'
               });
             } else {
               // need insert
-              let updateRes = await controller.updateCheck(updateCheck.id, updateCheck.employee_id, updateCheck.check_type, check_datetime, updateCheck.check_status);
-              updateCheck.res = updateRes;
+              let updateRes = await controller.updateCheck(updateCheck.id, updateCheck.employee_id, updateCheck.check_in_datetime, updateCheck.check_in_status, updateCheck.check_out_datetime, updateCheck.check_out_status);
+              // updateCheck.res = updateRes; err sql \" "
               log.insertLog(req.session.user.id, 'modify_check', JSON.stringify(updateCheck));
               res.json({
                 insertRes: updateRes

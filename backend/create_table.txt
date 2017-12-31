@@ -48,7 +48,7 @@ CREATE TABLE log
 );
 
 # 
-CREATE TABLE check
+CREATE TABLE employee_check
 (
   id INT PRIMARY KEY AUTO_INCREMENT,
   employee_id INT NOT NULL,
@@ -57,21 +57,23 @@ CREATE TABLE check
   check_out_time TIME,
   check_in_status BOOLEAN,
   check_out_status BOOLEAN,
+  UNIQUE KEY (employee_id, check_date),
   FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE
 );
 
 
 
 # check_type: CHECK_IN_TIME or CHECK_OUT_TIME, the same day most one to one mapping
-CREATE TABLE employee_check
-(
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  employee_id INT NOT NULL,
-  check_type VARCHAR(255) NOT NULL,
-  check_time DATETIME NOT NULL,
-  check_status BOOLEAN NOT NULL,
-  FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE
-);
+
+# CREATE TABLE employee_check
+# (
+#   id INT PRIMARY KEY AUTO_INCREMENT,
+#   employee_id INT NOT NULL,
+#   check_type VARCHAR(255) NOT NULL,
+#   check_time DATETIME NOT NULL,
+#   check_status BOOLEAN NOT NULL,
+#   FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE
+# );
 
 
 # setting

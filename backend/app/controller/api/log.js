@@ -12,8 +12,8 @@ controller.insertLog = async function (employee_id, operate_type, operate_value)
       console.log('oepn connection');
       let create_time = moment().format('YYYY-MM-DD HH:mm:ss');
       let update_time = create_time;
-      let insertSql = 'INSERT INTO log (employee_id, operate_type, operate_value, create_time, update_time) VALUES (' + employee_id + ', \'' + operate_type + '\', N\'' + operate_value + '\', \'' + create_time + '\', \'' + update_time + '\');';
-      // console.log(insertSql);
+      let insertSql = 'INSERT INTO log (employee_id, operate_type, operate_value, create_time, update_time) VALUES (' + employee_id + ', \'' + operate_type + '\', \'' + operate_value + '\', \'' + create_time + '\', \'' + update_time + '\');';
+      console.log(insertSql);
       connection.query(insertSql, function (err, results, fileds) {
         if (err) {
           console.log(JSON.stringify(err));
