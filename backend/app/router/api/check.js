@@ -2,7 +2,7 @@ let parse_router = require('../../util/parse_router');
 
 let controller = require('../../controller/api/check');
 let log = require('../../controller/api/log');
-let setting = require('../../controller/api/setting');
+// let setting = require('../../controller/api/setting');
 
 let Router = function (router, absolute_path) {
   let temp_router_url = parse_router(absolute_path);

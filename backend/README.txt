@@ -30,8 +30,15 @@ attributes: employee_id, unique, not contained in 3 and 4.
 
 Business:
 1.employee_check:
-attributes: id, employee_id, check_type, check_time, check_status;
+attributes: id, employee_id, check_date, check_in_time, check_in_status, check_out_time, check_out_status;
 primary key: id; reference key: employee_id.
+unique: (employee_id, check_date)
+
+2.employee_leave:
+attributes: id, employee_id, leave_type, leave_reason, begin_date, end_date, submit_status, approve_reason, approve_status;
+primary key: id; reference key: employee_id.
+
+
 
 2.trip_application:
 attributes: id, employee_id, trip_type_id, begin_time, end_time, reason, status;

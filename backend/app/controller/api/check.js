@@ -120,12 +120,12 @@ controller.checkIn = async function (employee_id) {
   let check_date = moment(check_datetime).format('YYYY-MM-DD');
   let check_time = moment(check_datetime).format('HH:mm:ss');
   // check if the date need work
-  // if (new Date(check_date).getDay() % 6 == 0) {
-  //   // weekend
-  //   return {
-  //     check_status: 'date error'
-  //   }
-  // }
+  if (new Date(check_date).getDay() % 6 == 0) {
+    // weekend
+    return {
+      check_status: 'date error'
+    }
+  }
   let check_status = await isCheckInStatusLegal(check_time);
   if (check_status === null) {
     return 'time error';
@@ -158,12 +158,12 @@ controller.checkOut = async function (employee_id) {
   let check_date = moment(check_datetime).format('YYYY-MM-DD');
   let check_time = moment(check_datetime).format('HH:mm:ss');
   // check if the date need work
-  // if (new Date(check_date).getDay() % 6 == 0) {
-  //   // weekend
-  //   return {
-  //     check_status: 'date error'
-  //   }
-  // }
+  if (new Date(check_date).getDay() % 6 == 0) {
+    // weekend
+    return {
+      check_status: 'date error'
+    }
+  }
   let check_status = await isCheckOutStatusLegal(check_time);
   if (check_status === null) {
     return 'time error';
@@ -299,10 +299,10 @@ controller.getChecksFromEmployeeCheck = async function () {
 }
 // head ok
 controller.getChecksBelongDepartment = async function (department_id) {
-  let subordinateIDs = await employee_controller.getEmployeeIDsByBelongDepartmentID(department_id);
+  let employees = await employee_controller.getEmployeeIDsByBelongDepartmentID(department_id);
   let employeeIDArray = [];
-  for (let index in subordinateIDs) {
-    employeeIDArray.push(subordinateIDs[index].employee_id)
+  for (let index in employees) {
+    employeeIDArray.push(employees[index].employee_id)
   }
   let checksArray = await getChecksByEmployeeIDs(employeeIDArray);
   return checksArray;
