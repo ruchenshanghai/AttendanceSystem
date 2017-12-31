@@ -47,6 +47,19 @@ CREATE TABLE log
   update_time DATETIME NOT NULL
 );
 
+# 
+CREATE TABLE check
+(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  employee_id INT NOT NULL,
+  check_date DATE,
+  check_in_time TIME,
+  check_out_time TIME,
+  check_in_status BOOLEAN,
+  check_out_status BOOLEAN,
+  FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE
+);
+
 
 
 # check_type: CHECK_IN_TIME or CHECK_OUT_TIME, the same day most one to one mapping
@@ -69,3 +82,4 @@ CREATE TABLE setting (
 );
 INSERT INTO setting (name, value) VALUES ('CHECK_IN_TIME', '09:00:00');
 INSERT INTO setting (name, value) VALUES ('CHECK_OUT_TIME', '17:00:00');
+
