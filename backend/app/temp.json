@@ -1,0 +1,34 @@
+[
+  {
+    "id": 3,
+    "employee_id": 1,
+    "check_in_datetime": "2017-12-30T03:30:00.000Z",
+    "check_in_status": true,
+    "check_out_datetime": "2017-12-30T05:30:00.000Z",
+    "check_out_status": true,
+    "res": {
+      "code": "ER_DUP_ENTRY",
+      "errno": 1062,
+      "sqlMessage": "Duplicate entry '1-2017-12-30' for key 'employee_id'",
+      "sqlState": "23000",
+      "index": 0,
+      "sql": "UPDATE employee_check SET employee_id=1, check_date='2017-12-30', check_in_time='11:30:00', check_in_status=true, check_out_time='13:30:00', check_out_status=true WHERE id=3;"
+    }
+  },
+  {
+    "id": 3,
+    "employee_id": 1,
+    "check_in_datetime": "2017-12-30T03:30:00.000Z",
+    "check_in_status": true,
+    "check_out_datetime": "2017-12-30T05:30:00.000Z",
+    "check_out_status": true
+  },
+  {
+    "code": "ER_PARSE_ERROR",
+    "errno": 1064,
+    "sqlMessage": "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'id\":3,\"employee_id\":1,\"check_in_datetime\":\"2017-12-30T03:30:00.000Z\",\"check_in_s' at line 1",
+    "sqlState": "42000",
+    "index": 0,
+    "sql": "INSERT INTO log (employee_id, operate_type, operate_value, create_time, update_time) VALUES (4, 'modify_check', \"{\"id\":3,\"employee_id\":1,\"check_in_datetime\":\"2017-12-30T03:30:00.000Z\",\"check_in_status\":true,\"check_out_datetime\":\"2017-12-30T05:30:00.000Z\",\"check_out_status\":true,\"res\":{\"code\":\"ER_DUP_ENTRY\",\"errno\":1062,\"sqlMessage\":\"Duplicate entry '1-2017-12-30' for key 'employee_id'\",\"sqlState\":\"23000\",\"index\":0,\"sql\":\"UPDATE employee_check SET employee_id=1, check_date='2017-12-30', check_in_time='11:30:00', check_in_status=true, check_out_time='13:30:00', check_out_status=true WHERE id=3;\"}}\", '2017-12-31 23:37:56', '2017-12-31 23:37:56');"
+  }
+]

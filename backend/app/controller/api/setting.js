@@ -4,12 +4,10 @@ let controller = {};
 
 controller.CHECK_IN_NAME = 'CHECK_IN_TIME';
 controller.CHECK_OUT_NAME = 'CHECK_OUT_TIME';
-controller.LEAVE_TYPE = {
-  SELFT_LEAVE_NAME: 'SELF_LEAVE',
-  SICK_LEAVE_NAME: 'SICK_LEAVE',
-  MATERNITY_LEAVE_NAME: 'MATERNITY_LEAVE',
-  WEDDING_LEAVE_NAME: 'WEDDING_LEAVE'
-}
+controller.LEAVE_TYPE = ['SELF_LEAVE', 'SICK_LEAVE', 'MATERNITY_LEAVE', 'WEDDING_LEAVE'];
+controller.TRIP_TYPE = ['COMPANY_ASSIGN', 'PERSONAL_APPLICATION'];
+
+
 
 // get all settings
 controller.getAllSettings = async function () {
