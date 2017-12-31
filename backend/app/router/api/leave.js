@@ -1,8 +1,9 @@
 let parse_router = require('../../util/parse_router');
+const moment = require('moment');
 
 let controller = require('../../controller/api/leave');
 let log = require('../../controller/api/log');
-// let setting = require('../../controller/api/setting');
+let setting = require('../../controller/api/setting');
 
 let Router = function (router, absolute_path) {
   let temp_router_url = parse_router(absolute_path);
@@ -56,21 +57,56 @@ let Router = function (router, absolute_path) {
         }
       }
     })
-  // .post(temp_router_url + '/IN', async (req, res) => {
-  //   // only for admin, delete logs array
-  //   if (req.session.isLogin !== true) {
-  //     res.json({
-  //       checkInRes: 'identity error'
-  //     });
-  //   } else {
-  //     let checkInRes = await controller.checkIn(req.session.user.id);
-  //     log.insertLog(req.session.user.id, 'checkin', JSON.stringify(checkInRes));
-  //     console.log(JSON.stringify(checkInRes));
-  //     res.json({
-  //       checkInRes: checkInRes
-  //     });
-  //   }
-  // })
+    .post(temp_router_url, async (req, res) => {
+      // only for admin, delete logs array
+      if (req.session.isLogin !== true) {
+        res.json({
+          leaveRes: 'identity error'
+        });
+      } else {
+        let insertLeave = req.body;
+        insertLeave.begin_date = new Date(insertLeave.begin_date);
+        insertLeave.end_date = new Date(insertLeave.end_date);
+        insertLeave.submit_status = Boolean(insertLeave.submit_status);
+        if (setting.LEAVE_TYPE.indexOf(insertLeave.leave_type) === -1 || typeof insertLeave.leave_reason !== 'string' || insertLeave.begin_date.toString() === 'Invalid Date' || insertLeave.end_date.toString() === 'Invalid Date') {
+          res.json({
+            leaveRes: 'format error'
+          });
+          return;
+        }
+
+        insertLeave.begin_date = moment(insertLeave.begin_date).format('YYYY-MM-DD');
+        insertLeave.end_date = moment(insertLeave.end_date).format('YYYY-MM-DD');
+        if (req.session.user.adminRight) {
+          let positiveReg = /^[0-9]+$/;
+          insertLeave.employee_id = Number(insertLeave.employee_id);
+          insertLeave.approve_status = Boolean(insertLeave.approve_status);
+          if (!positiveReg.test(insertLeave.employee_id) || typeof insertLeave.approve_reason !== 'string') {
+            res.json({
+              leaveRes: 'format error'
+            });
+            return;
+          }
+          let leaveRes = await controller.insertLeave(insertLeave.employee_id, insertLeave.leave_type, insertLeave.leave_reason, insertLeave.begin_date, insertLeave.end_date, insertLeave.submit_status, insertLeave.approve_reason, insertLeave.approve_status);
+          log.insertLog(req.session.user.id, 'submit_leave', JSON.stringify({
+            req: insertLeave,
+            res: leaveRes
+          }));
+          res.json({
+            leaveRes: leaveRes
+          });
+        } else {
+          let leaveRes = await controller.insertLeaveByEmployee(req.session.user.id, insertLeave.leave_type, insertLeave.leave_reason, insertLeave.begin_date, insertLeave.end_date, insertLeave.submit_status);
+          log.insertLog(req.session.user.id, 'submit_leave', JSON.stringify({
+            req: insertLeave,
+            res: leaveRes
+          }));
+          res.json({
+            leaveRes: leaveRes
+          });
+        }
+      }
+    })
   // .post(temp_router_url + '/OUT', async (req, res) => {
   //   // only for admin, delete logs array
   //   if (req.session.isLogin !== true) {
