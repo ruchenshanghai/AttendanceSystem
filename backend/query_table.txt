@@ -1,4 +1,4 @@
-# 4 admin，1 2 personnel, 3 5 12 head, 6 7 8 9 10 11 general
+admin: 1, personnel: 2, 3, head: 4 -> 1, 5 -> 2, 12 -> 3, general: (6, 8, 11 -> 1), (7, 9 -> 2), 10, 13 
 
 # query specific employee
 # SELECT

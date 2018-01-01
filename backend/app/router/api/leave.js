@@ -4,6 +4,7 @@ const moment = require('moment');
 let controller = require('../../controller/api/leave');
 let log = require('../../controller/api/log');
 let setting = require('../../controller/api/setting');
+let employee_controller = require('../../controller/api/employee');
 
 let Router = function (router, absolute_path) {
   let temp_router_url = parse_router(absolute_path);
@@ -58,10 +59,11 @@ let Router = function (router, absolute_path) {
       }
     })
     .post(temp_router_url, async (req, res) => {
-      // only for admin, delete logs array
+      // general: leave_type, leave_reason, begin_date, end_date, submit_status
+      // admin: employee_id, approve_reason, approve_status
       if (req.session.isLogin !== true) {
         res.json({
-          leaveRes: 'identity error'
+          insertRes: 'identity error'
         });
       } else {
         let insertLeave = req.body;
@@ -70,7 +72,7 @@ let Router = function (router, absolute_path) {
         insertLeave.submit_status = Boolean(insertLeave.submit_status);
         if (setting.LEAVE_TYPE.indexOf(insertLeave.leave_type) === -1 || typeof insertLeave.leave_reason !== 'string' || insertLeave.begin_date.toString() === 'Invalid Date' || insertLeave.end_date.toString() === 'Invalid Date') {
           res.json({
-            leaveRes: 'format error'
+            insertRes: 'format error'
           });
           return;
         }
@@ -83,175 +85,196 @@ let Router = function (router, absolute_path) {
           insertLeave.approve_status = Boolean(insertLeave.approve_status);
           if (!positiveReg.test(insertLeave.employee_id) || typeof insertLeave.approve_reason !== 'string') {
             res.json({
-              leaveRes: 'format error'
+              insertRes: 'format error'
             });
             return;
           }
-          let leaveRes = await controller.insertLeave(insertLeave.employee_id, insertLeave.leave_type, insertLeave.leave_reason, insertLeave.begin_date, insertLeave.end_date, insertLeave.submit_status, insertLeave.approve_reason, insertLeave.approve_status);
-          log.insertLog(req.session.user.id, 'submit_leave', JSON.stringify({
+          let insertRes = await controller.insertLeave(insertLeave.employee_id, insertLeave.leave_type, insertLeave.leave_reason, insertLeave.begin_date, insertLeave.end_date, insertLeave.submit_status, insertLeave.approve_reason, insertLeave.approve_status);
+          let log_type = insertLeave.submit_status ? 'submit_leave' : 'save_leave';
+          log.insertLog(req.session.user.id, log_type, JSON.stringify({
             req: insertLeave,
-            res: leaveRes
+            res: insertRes
           }));
           res.json({
-            leaveRes: leaveRes
+            insertRes: insertRes
           });
         } else {
           let leaveRes = await controller.insertLeaveByEmployee(req.session.user.id, insertLeave.leave_type, insertLeave.leave_reason, insertLeave.begin_date, insertLeave.end_date, insertLeave.submit_status);
-          log.insertLog(req.session.user.id, 'submit_leave', JSON.stringify({
+          let log_type = insertLeave.submit_status ? 'submit_leave' : 'save_leave';
+          log.insertLog(req.session.user.id, log_type, JSON.stringify({
             req: insertLeave,
             res: leaveRes
           }));
           res.json({
-            leaveRes: leaveRes
+            insertRes: leaveRes
           });
         }
       }
     })
-  // .post(temp_router_url + '/OUT', async (req, res) => {
-  //   // only for admin, delete logs array
-  //   if (req.session.isLogin !== true) {
-  //     res.json({
-  //       checkInRes: 'identity error'
-  //     });
-  //   } else {
-  //     let checkOutRes = await controller.checkOut(req.session.user.id);
-  //     log.insertLog(req.session.user.id, 'checkout', JSON.stringify(checkOutRes));
-  //     console.log(JSON.stringify(checkOutRes));
-  //     res.json({
-  //       checkOutRes: checkOutRes
-  //     });
-  //   }
-  // })
+    .put(temp_router_url + '/:id', async (req, res) => {
+      // general: id, leave_type, leave_reason, begin_date, end_date, submit_status
+      // admin: employee_id, approve_reason, approve_status
+      if (req.session.isLogin !== true) {
+        res.json({
+          getRes: 'identity error'
+        });
+      } else {
+        let updateID = Number(req.params.id);
+        let positiveReg = /^[0-9]+$/;
+        let updateLeave = req.body;
+        updateLeave.begin_date = new Date(updateLeave.begin_date);
+        updateLeave.end_date = new Date(updateLeave.end_date);
+        updateLeave.submit_status = Boolean(updateLeave.submit_status);
 
+        if (updateID !== updateLeave.id || !positiveReg.test(updateLeave.id) || setting.LEAVE_TYPE.indexOf(updateLeave.leave_type) === -1 || typeof updateLeave.leave_reason !== 'string' || updateLeave.begin_date.toString() === 'Invalid Date' || updateLeave.end_date.toString() === 'Invalid Date') {
+          res.json({
+            updateRes: 'format error'
+          });
+          return;
+        }
 
-  // .post(temp_router_url, async (req, res) => {
-  //   if (req.session.isLogin !== true) {
-  //     res.json({
-  //       insertRes: 'identity error'
-  //     });
-  //   } else {
-  //     if (req.session.user.adminRight === true) {
-  //       let insertCheck = req.body;
-  //       let positiveReg = /^[0-9]+$/;
-  //       try {
-  //         let check_datetime = new Date(insertCheck.check_datetime);
-  //         if (!positiveReg.test(insertCheck.employee_id) || (insertCheck.check_type !== 'IN' && insertCheck.check_type !== 'OUT') || check_datetime.toString() === 'Invalid Date') {
-  //           res.json({
-  //             insertRes: 'format error'
-  //           });
-  //         } else {
-  //           // need check
-  //           if (insertCheck.check_type === 'IN') {
-  //             let checkInRes = await controller.checkInSpecifiedDatetime(insertCheck.employee_id, check_datetime);
-  //             log.insertLog(req.session.user.id, 'checkin', JSON.stringify({
-  //               req: insertCheck,
-  //               res: checkInRes
-  //             }));
-  //             console.log(JSON.stringify(checkInRes));
-  //             res.json({
-  //               insertRes: checkInRes
-  //             });
-  //           } else {
-  //             let checkOutRes = await controller.checkOutSpecifiedDatetime(insertCheck.employee_id, check_datetime);
-  //             log.insertLog(req.session.user.id, 'checkout', JSON.stringify({
-  //               req: insertCheck,
-  //               res: checkOutRes
-  //             }));
-  //             console.log(JSON.stringify(checkOutRes));
-  //             res.json({
-  //               insertRes: checkOutRes
-  //             });
-  //           }
-  //         }
-  //       } catch (err) {
-  //         console.log(JSON.stringify(err));
-  //         res.json({
-  //           insertRes: err
-  //         });
-  //       }
-  //     } else {
-  //       res.json({
-  //         insertRes: 'right error'
-  //       });
-  //     }
-  //   }
-  // })
-  // .put(temp_router_url + '/:id', async (req, res) => {
-  //   if (req.session.isLogin !== true) {
-  //     res.json({
-  //       getRes: 'identity error'
-  //     });
-  //   } else {
-  //     if (req.session.user.adminRight === true) {
-  //       let updateID = Number(req.params.id);
-  //       let updateCheck = req.body;
-  //       updateCheck.check_in_status = Boolean(updateCheck.check_in_status);
-  //       updateCheck.check_out_status = Boolean(updateCheck.check_out_status);
-  //       let positiveReg = /^[0-9]+$/;
-  //       try {
-  //         updateCheck.check_in_datetime = new Date(updateCheck.check_in_datetime);
-  //         updateCheck.check_out_datetime = new Date(updateCheck.check_out_datetime);
-  //         if (updateID !== updateCheck.id || !positiveReg.test(updateCheck.id) || !positiveReg.test(updateCheck.employee_id) || updateCheck.check_in_datetime.toString() === 'Invalid Date' || updateCheck.check_out_datetime.toString() === 'Invalid Date') {
-  //           res.json({
-  //             insertRes: 'format error'
-  //           });
-  //         } else {
-  //           // need insert
-  //           let updateRes = await controller.updateCheck(updateCheck.id, updateCheck.employee_id, updateCheck.check_in_datetime, updateCheck.check_in_status, updateCheck.check_out_datetime, updateCheck.check_out_status);
-  //           // updateCheck.res = updateRes; err sql \" "
-  //           log.insertLog(req.session.user.id, 'modify_check', JSON.stringify(updateCheck));
-  //           res.json({
-  //             insertRes: updateRes
-  //           });
-  //         }
-  //       } catch (err) {
-  //         console.log(JSON.stringify(err));
-  //         res.json({
-  //           insertRes: err
-  //         });
-  //       }
-  //     } else {
-  //       res.json({
-  //         getRes: 'right error'
-  //       });
-  //     }
-  //   }
-  // })
-  // .delete(temp_router_url, async (req, res) => {
-  //   if (req.session.isLogin !== true) {
-  //     res.json({
-  //       getRes: 'identity error'
-  //     });
-  //   } else {
-  //     if (req.session.user.adminRight === true) {
-  //       let deleteArray = req.body;
-  //       let positiveReg = /^[0-9]+$/;
-  //       for (let index in deleteArray) {
-  //         deleteArray[index] = Number(deleteArray[index]);
-  //         if (!positiveReg.test(deleteArray[index])) {
-  //           res.json({
-  //             deleteRes: 'format error'
-  //           });
-  //           return;
-  //         }
-  //       }
-  //       deleteArray = Array.from(new Set(deleteArray));
-  //       let deleteRes = await controller.deleteChecks(deleteArray);
-  //       let logObj = {
-  //         id: deleteArray,
-  //         res: deleteRes
-  //       };
-  //       log.insertLog(req.session.user.id, 'delete_check', JSON.stringify(logObj));
-  //       res.json({
-  //         deleteRes: deleteRes
-  //       });
-  //     } else {
-  //       res.json({
-  //         getRes: 'right error'
-  //       });
-  //     }
-  //   }
-  // })
+        updateLeave.begin_date = moment(updateLeave.begin_date).format('YYYY-MM-DD');
+        updateLeave.end_date = moment(updateLeave.end_date).format('YYYY-MM-DD');
+        if (req.session.user.adminRight === true) {
+          updateLeave.employee_id = Number(updateLeave.employee_id);
+          updateLeave.approve_status = Boolean(updateLeave.approve_status);
+          if (!positiveReg.test(updateLeave.employee_id) || typeof updateLeave.approve_reason !== 'string') {
+            res.json({
+              updateRes: 'format error'
+            });
+            return;
+          }
+          let updateRes = await controller.updateLeave(updateID, updateLeave.employee_id, updateLeave.leave_type, updateLeave.leave_reason, updateLeave.begin_date, updateLeave.end_date, updateLeave.submit_status, updateLeave.approve_reason, updateLeave.approve_status);
+          let log_type = updateLeave.submit_status ? 'submit_leave' : 'save_leave';
+          log.insertLog(req.session.user.id, log_type, JSON.stringify({
+            req: updateLeave,
+            res: updateRes
+          }));
+          res.json({
+            updateRes: updateRes
+          });
+        } else {
+          updateLeave.employee_id = req.session.user.id;
+          let updateRes = await controller.updateLeaveByEmployee(updateID, updateLeave.employee_id, updateLeave.leave_type, updateLeave.leave_reason, updateLeave.begin_date, updateLeave.end_date, updateLeave.submit_status);
+          let log_type = updateLeave.submit_status ? 'submit_leave' : 'save_leave';
+          log.insertLog(req.session.user.id, log_type, JSON.stringify({
+            req: updateLeave,
+            res: updateRes
+          }));
+          res.json({
+            updateRes: updateRes
+          });
+        }
+      }
+    })
+    .put(temp_router_url + '/approve/:id', async (req, res) => {
+      // admin, personnel, head: id, approve_reason, approve_status
+      if (req.session.isLogin !== true) {
+        res.json({
+          updateRes: 'identity error'
+        });
+      } else {
+
+        let updateID = Number(req.params.id);
+        let positiveReg = /^[0-9]+$/;
+        let updateLeave = req.body;
+        updateLeave.approve_status = Boolean(updateLeave.approve_status);
+        if (updateID !== updateLeave.id || !positiveReg.test(updateLeave.id) || typeof updateLeave.approve_reason !== 'string') {
+          res.json({
+            updateRes: 'format error'
+          });
+          return;
+        }
+        let targetLeave = await controller.getLeaveByID(updateID);
+        if (targetLeave.length === 0 || Boolean(targetLeave[0].submit_status) !== true || Boolean(targetLeave[0].approve_status) === true) {
+          res.json({
+            updateRes: 'approve leave target error'
+          });
+          return;
+        }
+        targetLeave = targetLeave[0];
+        let targetEmployee = await employee_controller.getIdentityByID(targetLeave.employee_id);
+        let approveRight = false;
+        if (req.session.user.adminRight === true) {
+          approveRight = true;
+        } else {
+          // cannot approve oneself
+          if (targetEmployee.id === req.session.user.id) {
+            res.json({
+              updateRes: 'cannot approve own leave'
+            });
+            return;
+          }
+          if (req.session.user.personnelRight === true && (targetEmployee.department === undefined || targetEmployee.headRight === true)) {
+            approveRight = true;
+          } else if (req.session.user.headRight === true && targetEmployee.department !== undefined && req.session.user.department.id === targetEmployee.department.id) {
+            approveRight = true;
+          }
+        }
+
+        if (approveRight) {
+          let updateRes = await controller.approveLeave(updateID, updateLeave.approve_reason, updateLeave.approve_status);
+          let log_type = updateLeave.approve_status ? 'approve_leave' : 'reject_leave';
+          log.insertLog(req.session.user.id, log_type, JSON.stringify({
+            req: updateLeave,
+            res: updateRes
+          }));
+          res.json({
+            updateRes: updateRes
+          });
+        } else {
+          res.json({
+            updateRes: 'right error'
+          });
+        }
+      }
+    })
+    .delete(temp_router_url + '/:id', async (req, res) => {
+      // general: id, leave_type, leave_reason, begin_date, end_date, submit_status
+      // admin: employee_id, approve_reason, approve_status
+      if (req.session.isLogin !== true) {
+        res.json({
+          deleteRes: 'identity error'
+        });
+      } else {
+        let deleteID = Number(req.params.id);
+        let targetLeave = await controller.getLeaveByID(deleteID);
+        if (targetLeave.length === 0) {
+          res.json({
+            deleteRes: 'delete leave target error'
+          });
+          return;
+        }
+        targetLeave = targetLeave[0];
+        if (req.session.user.adminRight !== true) {
+          if (targetLeave.employee_id !== req.session.user.id || Boolean(targetLeave.submit_status) === true || Boolean(targetLeave.approve_status) === true) {
+            res.json({
+              deleteRes: 'right error'
+            });
+            return;
+          }
+          // own
+          let deleteRes = await controller.deleteLeaves([deleteID]);
+          log.insertLog(req.session.user.id, 'delete_leave', JSON.stringify({
+            req: deleteID,
+            res: deleteRes
+          }));
+          res.json({
+            deleteRes: deleteRes
+          });
+        } else {
+          // admin
+          let deleteRes = await controller.deleteLeaves([deleteID]);
+          log.insertLog(req.session.user.id, 'delete_leave', JSON.stringify({
+            req: deleteID,
+            res: deleteRes
+          }));
+          res.json({
+            deleteRes: deleteRes
+          });
+        }
+      }
+    })
 }
 
 
