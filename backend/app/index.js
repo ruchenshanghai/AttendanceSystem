@@ -18,7 +18,7 @@ app.use(session({
   resave: true,
   saveUninitialized: false,
   cookie: {
-    maxAge: 1000 * 60 * 3
+    maxAge: 1000 * 60 * 30
   }
 }));
 app.use(logger('dev'));
@@ -37,12 +37,11 @@ app.get('*', function (req, res) {
 // let temp = new Date('ss');
 // console.log(temp.toString());
 // console.log(Date.parse('ss 12'));
-// let password = md5('张星宇3号');
-// console.log(password);
+const md5 = require('md5');
+let password = md5('database2017');
+console.log(password);
 
 
 server.listen(config.server_port, function () {
   console.log('Express server listening on port %d in %s mode', config.server_port, app.get('env'));
-  let test = require('./controller/api/leave');
-  test.updateLeave(2, 1, 'type', 'reason', '2016-12-12', '2018-01-13', false, null, null);
 });

@@ -158,7 +158,7 @@ let Router = function (router, absolute_path) {
                 insertRes: 'format error'
               });
             } else {
-              // need insert
+              // need update
               let updateRes = await controller.updateCheck(updateCheck.id, updateCheck.employee_id, updateCheck.check_in_datetime, updateCheck.check_in_status, updateCheck.check_out_datetime, updateCheck.check_out_status);
               // updateCheck.res = updateRes; err sql \" "
               log.insertLog(req.session.user.id, 'modify_check', JSON.stringify(updateCheck));

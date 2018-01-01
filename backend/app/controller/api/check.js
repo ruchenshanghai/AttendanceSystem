@@ -140,9 +140,13 @@ controller.checkInSpecifiedDatetime = async function (employee_id, datetime) {
   let check_date = moment(check_datetime).format('YYYY-MM-DD');
   let check_time = moment(check_datetime).format('HH:mm:ss');
 
-  console.log(check_datetime.toString());
-  console.log(check_date);
-  console.log(check_time);
+  // check if the date need work
+  if (new Date(check_date).getDay() % 6 == 0) {
+    // weekend
+    return {
+      check_status: 'date error'
+    }
+  }
   let check_status = await isCheckInStatusLegal(check_time);
   if (check_status === null) {
     return 'time error';
@@ -178,6 +182,13 @@ controller.checkOutSpecifiedDatetime = async function (employee_id, datetime) {
   let check_date = moment(check_datetime).format('YYYY-MM-DD');
   let check_time = moment(check_datetime).format('HH:mm:ss');
 
+  // check if the date need work
+  if (new Date(check_date).getDay() % 6 == 0) {
+    // weekend
+    return {
+      check_status: 'date error'
+    }
+  }
   let check_status = await isCheckOutStatusLegal(check_time);
   if (check_status === null) {
     return 'time error';
