@@ -37,9 +37,9 @@ app.get('*', function (req, res) {
 // let temp = new Date('ss');
 // console.log(temp.toString());
 // console.log(Date.parse('ss 12'));
-const md5 = require('md5');
-let password = md5('database2017');
-console.log(password);
+// const md5 = require('md5');
+// let password = md5('database2017');
+// console.log(password);
 
 
 server.listen(config.server_port, function () {

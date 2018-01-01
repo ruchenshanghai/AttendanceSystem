@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfc55324-b1d2-47bc-b378-1faa4729684b" name="Default" comment="need to do:&#10;1.check:  rebuild ok&#10;2.department: ok&#10;3.assign ok&#10;4.trip and leave: function, get post put delete&#10;procedure: trip leave&#10;&#10;leave: post put delete">
-      <change beforePath="" afterPath="$PROJECT_DIR$/router/api/trip.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/44f7e751-81a3-4e72-b32c-bfe789a64da3.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/44f7e751-81a3-4e72-b32c-bfe789a64da3.xml" />
+    <list default="true" id="bfc55324-b1d2-47bc-b378-1faa4729684b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/controller/api/check.js" afterPath="$PROJECT_DIR$/controller/api/check.js" />
-      <change beforePath="$PROJECT_DIR$/controller/api/leave.js" afterPath="$PROJECT_DIR$/controller/api/leave.js" />
-      <change beforePath="$PROJECT_DIR$/controller/api/trip.js" afterPath="$PROJECT_DIR$/controller/api/trip.js" />
-      <change beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change beforePath="$PROJECT_DIR$/router/api/check.js" afterPath="$PROJECT_DIR$/router/api/check.js" />
-      <change beforePath="$PROJECT_DIR$/router/api/leave.js" afterPath="$PROJECT_DIR$/router/api/leave.js" />
-      <change beforePath="$PROJECT_DIR$/../create_table.txt" afterPath="$PROJECT_DIR$/../create_table.txt" />
-      <change beforePath="$PROJECT_DIR$/../query_table.txt" afterPath="$PROJECT_DIR$/../query_table.txt" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,55 +43,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/44f7e751-81a3-4e72-b32c-bfe789a64da3/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="check.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/router/api/check.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="88" column="47" lean-forward="false" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
-              <folding>
-                <element signature="e#390#2036#0" expanded="false" />
-                <element signature="e#2093#2546#0" expanded="false" />
-                <element signature="e#2604#3064#0" expanded="false" />
-                <element signature="e#3113#5013#0" expanded="false" />
-                <element signature="e#5070#6843#0" expanded="false" />
-                <element signature="e#6894#7928#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="check.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/api/check.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="179" column="24" lean-forward="false" selection-start-line="179" selection-start-column="24" selection-end-line="179" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -150,7 +94,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="employee_check" />
+        <entry key="$PROJECT_DIR$/../.." value="date_time_split" />
       </map>
     </option>
     <option name="RESET_MODE" value="HARD" />
@@ -171,9 +115,10 @@
         <option value="$PROJECT_DIR$/controller/api/leave.js" />
         <option value="$PROJECT_DIR$/controller/api/trip.js" />
         <option value="$PROJECT_DIR$/router/api/trip.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/44f7e751-81a3-4e72-b32c-bfe789a64da3/console.sql" />
         <option value="$PROJECT_DIR$/controller/api/check.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -226,17 +171,6 @@
             <path>
               <item name="app" type="b2602c69:ProjectViewProjectNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -383,7 +317,7 @@
       <updated>1514720520577</updated>
       <workItem from="1514720521765" duration="25935000" />
       <workItem from="1514747092924" duration="1400000" />
-      <workItem from="1514773606367" duration="8662000" />
+      <workItem from="1514773606367" duration="9258000" />
     </task>
     <task id="LOCAL-00001" summary="transfer">
       <created>1514720603392</created>
@@ -420,15 +354,28 @@
       <option name="project" value="LOCAL" />
       <updated>1514746355254</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="need to do:&#10;all ok">
+      <created>1514782324286</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1514782324286</updated>
+    </task>
+    <task id="LOCAL-00007" summary="need to do: all ok， add api list, deploy">
+      <created>1514782481493</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1514782481493</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36037000" />
+    <option name="totallyTimeSpent" value="36633000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="967" y="0" width="1592" height="1040" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -438,14 +385,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1707841" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1180203" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16434011" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -498,7 +445,9 @@
     <MESSAGE value="transfer config" />
     <MESSAGE value="need to do:&#10;1.check:  rebuild ok&#10;2.department: ok&#10;3.assign ok&#10;4.trip and leave: function, get post put delete&#10;procedure: trip leave" />
     <MESSAGE value="need to do:&#10;1.check:  rebuild ok&#10;2.department: ok&#10;3.assign ok&#10;4.trip and leave: function, get post put delete&#10;procedure: trip leave&#10;&#10;leave: post put delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="need to do:&#10;1.check:  rebuild ok&#10;2.department: ok&#10;3.assign ok&#10;4.trip and leave: function, get post put delete&#10;procedure: trip leave&#10;&#10;leave: post put delete" />
+    <MESSAGE value="need to do:&#10;all ok" />
+    <MESSAGE value="need to do: all ok， add api list, deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="need to do: all ok， add api list, deploy" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -508,13 +457,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/router/api/employee.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/api/department.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -644,12 +586,12 @@
         <state relative-caret-position="119">
           <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
           <folding>
-            <element signature="e#1768#2666#0" expanded="false" />
-            <element signature="e#4721#5545#0" expanded="false" />
-            <element signature="e#6570#6886#0" expanded="false" />
-            <element signature="e#6938#7673#0" expanded="false" />
-            <element signature="e#7722#8392#0" expanded="false" />
-            <element signature="e#9679#10661#0" expanded="false" />
+            <element signature="e#1769#2667#0" expanded="false" />
+            <element signature="e#4722#5546#0" expanded="false" />
+            <element signature="e#6571#6887#0" expanded="false" />
+            <element signature="e#6939#7674#0" expanded="false" />
+            <element signature="e#7723#8393#0" expanded="false" />
+            <element signature="e#9680#10662#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -675,12 +617,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1768#2666#0" expanded="false" />
-            <element signature="e#4721#5545#0" expanded="false" />
-            <element signature="e#6570#6886#0" expanded="false" />
-            <element signature="e#6938#7673#0" expanded="false" />
-            <element signature="e#7722#8392#0" expanded="false" />
-            <element signature="e#9679#10661#0" expanded="false" />
+            <element signature="e#1769#2667#0" expanded="false" />
+            <element signature="e#4722#5546#0" expanded="false" />
+            <element signature="e#6571#6887#0" expanded="false" />
+            <element signature="e#6939#7674#0" expanded="false" />
+            <element signature="e#7723#8393#0" expanded="false" />
+            <element signature="e#9680#10662#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -814,12 +756,12 @@
         <state relative-caret-position="255">
           <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
           <folding>
-            <element signature="e#1768#2666#0" expanded="false" />
-            <element signature="e#4721#5545#0" expanded="false" />
-            <element signature="e#6570#6886#0" expanded="false" />
-            <element signature="e#6938#7673#0" expanded="false" />
-            <element signature="e#7722#8392#0" expanded="false" />
-            <element signature="e#9679#10661#0" expanded="false" />
+            <element signature="e#1769#2667#0" expanded="false" />
+            <element signature="e#4722#5546#0" expanded="false" />
+            <element signature="e#6571#6887#0" expanded="false" />
+            <element signature="e#6939#7674#0" expanded="false" />
+            <element signature="e#7723#8393#0" expanded="false" />
+            <element signature="e#9680#10662#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -843,23 +785,15 @@
         <state relative-caret-position="51">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#175#860#0" expanded="false" />
-            <element signature="e#921#1632#0" expanded="false" />
-            <element signature="e#1757#2649#0" expanded="false" />
-            <element signature="e#4689#5512#0" expanded="false" />
-            <element signature="e#6532#6845#0" expanded="false" />
-            <element signature="e#6896#7629#0" expanded="false" />
-            <element signature="e#7677#8343#0" expanded="false" />
-            <element signature="e#9618#10594#0" expanded="false" />
+            <element signature="e#175#861#0" expanded="false" />
+            <element signature="e#922#1633#0" expanded="false" />
+            <element signature="e#1758#2650#0" expanded="false" />
+            <element signature="e#4690#5513#0" expanded="false" />
+            <element signature="e#6533#6846#0" expanded="false" />
+            <element signature="e#6897#7630#0" expanded="false" />
+            <element signature="e#7678#8344#0" expanded="false" />
+            <element signature="e#9619#10595#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -912,14 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/44f7e751-81a3-4e72-b32c-bfe789a64da3/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/api/check.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
@@ -930,8 +856,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/router/api/check.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="88" column="47" lean-forward="false" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+        <state relative-caret-position="272">
+          <caret line="216" column="1" lean-forward="true" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
           <folding>
             <element signature="e#390#2036#0" expanded="false" />
             <element signature="e#2093#2546#0" expanded="false" />
@@ -940,6 +866,30 @@
             <element signature="e#5070#6843#0" expanded="false" />
             <element signature="e#6894#7928#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/44f7e751-81a3-4e72-b32c-bfe789a64da3/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
