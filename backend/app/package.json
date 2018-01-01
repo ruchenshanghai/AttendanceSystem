@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "production": "SET NODE_ENV=development & pm2 start index.js --name 'AtttendanceSystem'"
+    "production": "pm2 start index.js --name 'AttendanceSystem'"
   },
   "author": "ruchenshanghai",
   "license": "ISC",

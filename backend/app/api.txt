@@ -1,0 +1,69 @@
+host:118.89.184.85, port:3030
+session: 30 minutes
+
+login: post /api/employee,
+format: json, 4 identity: general, head, personnel, admin
+req: {
+id: integer,
+password: string(md5)
+}
+res: {
+loginRes: {
+id, name, password, adminRight/headRight/personnelRight
+}
+}
+
+other function:
+employee
+get all employees: get /api/employee
+add employee: for admin and personnel, post /api/employee
+modify employee: admin, personnel and own, put /api/employee/id
+delete employee: admin and personnel, delete /api/employee/id
+
+department
+get all department: admin and personnel, get /api/department
+add new department: admin and personnel, post /api/department
+modify department: admin and personnel, put /api/department/id
+delete department: admin and personnel, delete /api/department/id
+
+relation
+assign employee belong to department: admin and personnel, post /api/relation/assign/belong
+assign employee head department: admin and personnel, post /api/relation/assign/head
+assign personnel: admin, post /api/relation/assign/personnel
+assign administrator: admin, post /api/relation/assign/administrator
+dismiss employee to general: admin, post /api/relation/dismiss
+
+check
+get all checks: for all, get /api/check
+checkin: for all, post /api/check/IN
+checkout: for all, post /api/check/OUT
+add check, for admin, post /api/check
+modify check: for admin, put /api/check/id
+delete check: for admin, delete /api/check
+
+leave
+get all leave: for all, get /api/leave
+add leave: for all, post /api/leave
+modify leave: for own and admin, put /api/leave/id
+approve leave: for personnel and head, put /api/leave/approve/id
+delete leave: for own and admin, delete /api/check/id
+
+trip
+get all trip: for all, get /api/trip
+add trip: for all, post /api/trip
+modify trip: for own and admin, put /api/trip/id
+approve trip: for personnel and head, put /api/trip/approve/id
+delete trip: for own and admin, delete /api/check/id
+
+log
+for admin
+get /api/log
+put /api/log/id
+delete /api/log
+
+setting
+for admin
+get /api/setting
+put /api/setting
+
+
