@@ -37,7 +37,7 @@ app.get('/public/:filepath', function (req, res) {
 });
 app.get('*', function (req, res) {
   console.log('get all the rest url');
-  res.sendFile(path.join(__dirname + '/public', 'index.html'));
+  res.sendFile(path.join(__dirname + '/public', '/html/index.html'));
 });
 
 

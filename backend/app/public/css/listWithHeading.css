@@ -1,0 +1,85 @@
+.listWithHeading {
+    margin: 20px;
+    border: thin solid darkgray;
+    border-radius: 5px;
+}
+.listWithHeading h1{
+    padding: 10px 20px;
+    background-color: #F3F3F3;
+    border-bottom: thin solid darkgray;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.listContent {
+    margin: 10px 20px;
+    border: thin solid darkgray;
+    border-radius: 5px;
+}
+.listContent li {
+    padding: 10px 30px 10px 10px;
+    border-bottom: thin solid darkgray;
+    height: 150px;
+}
+
+
+.listContent li img {
+    float: left
+}
+.listContent li article {
+    margin-left: 180px;
+}
+.listContent li article header {
+    font-size: 130%;
+    font-weight: bold;
+    color: deepskyblue;
+    line-height: 150%;
+}
+
+.listContent li article header a {
+    color: deepskyblue;
+}
+.listContent li article p.description {
+    height: 85px;
+}
+.listContent li article p.buttonSet {
+    text-align: right;
+}
+
+
+.modifyButton, .deleteButton{
+    padding: 5px 10px;
+    font-size: 100%;
+    color: white;
+    border-radius: 5px;
+}
+.modifyButton {
+    border: medium solid #3579b6;
+    background-color: #3579b6;
+}
+.deleteButton {
+    border: medium solid #ff0000;
+    background-color: red;
+}
+
+
+
+
+
+.listPage {
+    width: 230px;
+    margin: 20px auto 40px auto;
+}
+.listPage li{
+    display: inline-block;
+}
+.listPage li button {
+    color: #3579b6;
+    background-color: white;
+    border: thin solid darkgrey;
+    padding: 5px 10px;
+}
+.listPage li button#page1 {
+    background-color: #3579b6;
+    color: white;
+}
