@@ -1,0 +1,147 @@
+
+body {
+    min-width: 640px;
+}
+
+#mainNav {
+    background-color: #1b6d85;
+    height: 50px;
+}
+
+#mainNav ul li {
+    display: inline-block;
+    padding: 15px 10px;
+    color: darkgray;
+}
+#mainNav ul li a:link, #mainNav ul li a:visited {
+    color: darkgray;
+}
+
+#mainNav ul li a:hover {
+    color: white;
+}
+#mainNav ul li.selected {
+    background-color: black;
+}
+
+#mainNav ul li#logout{
+    float: right;
+}
+
+#navigation {
+    width: 25%;
+}
+#navigation ul {
+    margin: 20px;
+    border: medium solid #3579b6;
+    border-radius: 5px;
+}
+
+#navigation ul li {
+    padding: 10px 15px;
+    border-bottom: thin solid #c5dad3;
+}
+
+#navigation ul li:hover {
+    background-color: #DDDDDD;
+}
+
+#navigation ul li.listHeader {
+    background-color: #3579b6;
+    color: white;
+    text-align: left;
+    border-bottom: none;
+}
+
+
+
+#search {
+    margin: 20px;
+    border: thin solid darkgray;
+    border-radius: 5px;
+    background-color: #F3F3F3;
+}
+
+
+#searchTitle {
+    padding: 10px;
+}
+#searchContent {
+    position: relative;
+}
+
+#searchContent div {
+    height: 38px;
+    margin-right: 45px;
+}
+#searchContent input{
+    height: 38px;
+    border: thin solid darkgrey;
+    border-bottom-left-radius: 5px;
+    padding: 3px 10px;
+    width: 100%;
+    font-size: 100%;
+}
+#searchContent button {
+    padding: 5px 10px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: thin solid darkgrey;
+    background-color: #F3F3F3;
+}
+#searchContent input:hover {
+    border-width: medium;
+}
+#searchContent button:hover {
+    background-color: white;
+}
+
+
+#filter {
+    float: right;
+    width: 60%
+}
+#filter header h1{
+    padding: 10px 20px;
+    background-color: #fafafa;
+    border-bottom: thin solid darkgray;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#filter header form {
+    padding: 10px 10px;
+    border-bottom: thin solid darkgray;
+
+}
+
+#filter header form select {
+    width: 25%;
+    margin: 0 10px;
+    font-size: 100%;
+}
+
+#filter header form input[type="submit"] {
+    border-radius: 5px;
+    color: white;
+    background-color: #3579b6;
+    border: medium solid #3579b6;
+    width: auto;
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+
+#filter div#contents {
+    margin: 20px 10px;
+    border: thin solid darkgray;
+    border-radius: 5px;
+}
+#filter div.tableCell {
+    padding: 15px 20px;
+}
+
+footer {
+    clear: right;
+}
+

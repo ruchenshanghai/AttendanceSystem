@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="attendance@118.89.184.85" uuid="44f7e751-81a3-4e72-b32c-bfe789a64da3">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <introspection-schemas>*:attendance</introspection-schemas>
+    </data-source>
+  </component>
+</project>

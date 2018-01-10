@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const server = require('http').createServer(app);
+const cors = require('express-cors')
 
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -11,6 +12,8 @@ const session = require('express-session');
 
 let config = require('./config');
 
+
+app.use(cors({allowedOrigins: ['http://localhost:*']}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(session({
@@ -27,9 +30,14 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 require('./router/index')(router);
 app.use('/', router);
+
+app.get('/public/:filepath', function (req, res) {
+  console.log('get all the rest url');
+  res.sendFile(path.join(__dirname + '/public', req.params.filepath));
+});
 app.get('*', function (req, res) {
   console.log('get all the rest url');
-  res.sendFile(path.join(__dirname + '/public', 'index.html'));
+  res.sendFile(path.join(__dirname + '/public', '/html/index.html'));
 });
 
 

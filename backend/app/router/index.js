@@ -4,7 +4,7 @@ let path = require('path');
 let IndexRouter = function (router) {
   router.get('/index', (req, res) => {
     res.json({
-      info: 'index'
+      info: req.session.user
     });
   });
   travel(path.join(__dirname, 'api'), file_path => {
