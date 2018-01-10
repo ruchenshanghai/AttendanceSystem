@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const server = require('http').createServer(app);
+const cors = require('express-cors')
 
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -11,6 +12,8 @@ const session = require('express-session');
 
 let config = require('./config');
 
+
+app.use(cors({allowedOrigins: ['http://localhost:*']}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(session({
