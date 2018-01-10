@@ -30,6 +30,11 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 require('./router/index')(router);
 app.use('/', router);
+
+app.get('/public/:filepath', function (req, res) {
+  console.log('get all the rest url');
+  res.sendFile(path.join(__dirname + '/public', req.params.filepath));
+});
 app.get('*', function (req, res) {
   console.log('get all the rest url');
   res.sendFile(path.join(__dirname + '/public', 'index.html'));
