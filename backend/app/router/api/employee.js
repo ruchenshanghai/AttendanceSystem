@@ -70,6 +70,12 @@ let Router = function (router, absolute_path) {
         }
       }
     })
+    .post(temp_router_url + '/OUT', async (req, res) => {
+      delete req.session.user;
+      res.json({
+        logoutRes: 'success'
+      });
+    })
     .put(temp_router_url + '/:id', async (req, res) => {
       if (req.session.isLogin !== true) {
         res.json({

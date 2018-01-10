@@ -12,6 +12,7 @@ loginRes: {
 id, name, password, adminRight/headRight/personnelRight
 }
 }
+logout: post /api/employee/OUT
 
 other function:
 employee
