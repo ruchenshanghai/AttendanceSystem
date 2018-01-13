@@ -1,4 +1,5 @@
 let parse_router = require('../../util/parse_router');
+const moment = require('moment');
 
 let controller = require('../../controller/api/check');
 let employee_controller = require('../../controller/api/employee');
@@ -165,6 +166,161 @@ let Router = function (router, absolute_path) {
         }
         if (req.session.user.adminRight === true || req.session.user.personnelRight === true || (req.session.user.headRight === true && req.session.user.department.id === tempDepartmentID)) {
           let resChecks = await controller.getChecksBelongDepartment(tempDepartmentID);
+          res.json({
+            getRes: resChecks
+          })
+        } else {
+          res.json({
+            getRes: 'right error'
+          })
+        }
+      }
+    })
+    .get(temp_router_url + '/date/:date', async (req, res) => {
+      // get all checks
+      if (req.session.isLogin !== true) {
+        res.json({
+          getRes: 'identity error'
+        });
+      } else {
+        let tempDate = new Date(req.params.date);
+        if (tempDate.toString() === 'Invalid Date') {
+          res.json({
+            getRes: 'format error'
+          });
+          return;
+        }
+
+        if (req.session.user.headRight === true) {
+          tempDate = moment(tempDate).format('YYYY-MM-DD');
+          let resChecks = [];
+          let tempChecks = await controller.getChecksBelongDepartment(req.session.user.department.id);
+          for (let index in resChecks) {
+            if (tempChecks[index].check_date === tempDate) {
+              resChecks.push(tempChecks[index]);
+            }
+          }
+          res.json({
+            getRes: resChecks
+          })
+        } else {
+          res.json({
+            getRes: 'right error'
+          })
+        }
+      }
+    })
+    .get(temp_router_url + '/check_in_status/:check_in_status', async (req, res) => {
+      // get all checks
+      if (req.session.isLogin !== true) {
+        res.json({
+          getRes: 'identity error'
+        });
+      } else {
+        let tempStatus = Boolean(req.params.check_in_status);
+
+        if (req.session.user.headRight === true) {
+          let resChecks = [];
+          let tempChecks = await controller.getChecksBelongDepartment(req.session.user.department.id);
+          for (let index in resChecks) {
+            if (tempChecks[index].check_in_status !== null && Boolean(tempChecks[index].check_in_status) === tempStatus) {
+              resChecks.push(tempChecks[index]);
+            }
+          }
+          res.json({
+            getRes: resChecks
+          })
+        } else {
+          res.json({
+            getRes: 'right error'
+          })
+        }
+      }
+    })
+    .get(temp_router_url + '/check_out_status/:check_out_status', async (req, res) => {
+      // get all checks
+      if (req.session.isLogin !== true) {
+        res.json({
+          getRes: 'identity error'
+        });
+      } else {
+        let tempStatus = Boolean(req.params.check_out_status);
+
+        if (req.session.user.headRight === true) {
+          let resChecks = [];
+          let tempChecks = await controller.getChecksBelongDepartment(req.session.user.department.id);
+          for (let index in resChecks) {
+            if (tempChecks[index].check_out_status !== null && Boolean(tempChecks[index].check_out_status) === tempStatus) {
+              resChecks.push(tempChecks[index]);
+            }
+          }
+          res.json({
+            getRes: resChecks
+          })
+        } else {
+          res.json({
+            getRes: 'right error'
+          })
+        }
+      }
+    })
+    .get(temp_router_url + '/check_in_status/:check_in_status/check_out_status/:check_out_status', async (req, res) => {
+      // get all checks
+      if (req.session.isLogin !== true) {
+        res.json({
+          getRes: 'identity error'
+        });
+      } else {
+        let tempInStatus = Boolean(req.params.check_in_status);
+        let tempOutStatus = Boolean(req.params.check_out_status);
+
+        if (req.session.user.headRight === true) {
+          let resChecks = [];
+          let tempChecks = await controller.getChecksBelongDepartment(req.session.user.department.id);
+          for (let index in resChecks) {
+            if (tempChecks[index].check_in_status !== null && Boolean(tempChecks[index].check_in_status) === tempInStatus && tempChecks[index].check_out_status !== null && Boolean(tempChecks[index].check_out_status) === tempOutStatus) {
+              resChecks.push(tempChecks[index]);
+            }
+          }
+          res.json({
+            getRes: resChecks
+          })
+        } else {
+          res.json({
+            getRes: 'right error'
+          })
+        }
+      }
+    })
+    .get(temp_router_url + '/date/:date/check_in_status/:check_in_status/check_out_status/:check_out_status', async (req, res) => {
+      // get all checks
+      if (req.session.isLogin !== true) {
+        res.json({
+          getRes: 'identity error'
+        });
+      } else {
+        let tempDate = new Date(req.params.date);
+        if (tempDate.toString() === 'Invalid Date') {
+          res.json({
+            getRes: 'format error'
+          });
+          return;
+        }
+        tempDate = moment(tempDate).format('YYYY-MM-DD');
+        let tempInStatus = Boolean(req.params.check_in_status);
+        let tempOutStatus = Boolean(req.params.check_out_status);
+
+        if (req.session.user.headRight === true) {
+          let resChecks = [];
+          let tempChecks = await controller.getChecksBelongDepartment(req.session.user.department.id);
+          for (let index in resChecks) {
+            if (tempChecks[index].check_date === tempDate) {
+              resChecks.push(tempChecks[index]);
+            }
+            if (tempChecks[index].check_date === tempDate && tempChecks[index].check_in_status !== null && Boolean(tempChecks[index].check_in_status) === tempInStatus && tempChecks[index].check_out_status !== null && Boolean(tempChecks[index].check_out_status) === tempOutStatus) {
+              resChecks.push(tempChecks[index]);
+            }
+          }
           res.json({
             getRes: resChecks
           })
