@@ -86,7 +86,7 @@ let updateCheckOut = async function (employee_id, check_date, check_time, check_
 
 
 // ok
-let getChecksByEmployeeIDs = async function (employeeIDArray) {
+controller.getChecksByEmployeeIDs = async function (employeeIDArray) {
   let checksRes = await new Promise((resolve, reject) => {
     try {
       let connection = mysql_connect();
@@ -315,7 +315,7 @@ controller.getChecksBelongDepartment = async function (department_id) {
   for (let index in employees) {
     employeeIDArray.push(employees[index].employee_id)
   }
-  let checksArray = await getChecksByEmployeeIDs(employeeIDArray);
+  let checksArray = await this.getChecksByEmployeeIDs(employeeIDArray);
   return checksArray;
 }
 // own ok

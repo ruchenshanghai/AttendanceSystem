@@ -210,6 +210,54 @@ controller.getAllIdentity = async function () {
   return resEmployees;
 }
 
+controller.getAllIdentityByDepartment = async function (department_id) {
+  let allEmployees = await new Promise((resolve, reject) => {
+    try {
+      let connection = mysql_connect();
+      connection.connect();
+      console.log('oepn connection');
+      let querySql = 'SELECT\n' +
+        '  employee.id       AS id,\n' +
+        '  employee.name     AS name,\n' +
+        '  employee.password AS password,\n' +
+        '  admin.employee_id AS administrator_id,\n' +
+        '  personnel.employee_id AS personnel_id,\n' +
+        '  d1.id AS belong_department_id,\n' +
+        '  d1.name AS belong_department_name,\n' +
+        '  d1.code AS belong_department_code,\n' +
+        '  d2.id AS head_department_id,\n' +
+        '  d2.name AS head_department_name,\n' +
+        '  d2.code AS head_department_code\n' +
+        'FROM (employee\n' +
+        '  LEFT JOIN employee_administrator admin ON employee.id = admin.employee_id\n' +
+        '  LEFT JOIN employee_personnel personnel ON employee.id = personnel.employee_id\n' +
+        '  LEFT JOIN (employee_belong_department ebd INNER JOIN department d1 ON ebd.department_id = d1.id)\n' +
+        '    ON employee.id = ebd.employee_id\n' +
+        '  LEFT JOIN (employee_head_department ehd INNER JOIN department d2 ON ehd.department_id = d2.id)\n' +
+        '    ON employee.id = ehd.employee_id) WHERE d1.id=' + department_id + ' OR d2.id=' + department_id + ';';
+      connection.query(querySql, function (err, results, fileds) {
+        if (err) {
+          console.log(JSON.stringify(err));
+          resolve(err);
+        } else {
+          console.log('get all employees: ' + JSON.stringify(results));
+          resolve(results);
+        }
+      });
+      console.log('close connection');
+      connection.end();
+    } catch (err) {
+      resolve(null);
+    }
+  });
+  let resEmployees = [];
+  for (let index in allEmployees) {
+    let tempEmployee = filterEmployeeRight(allEmployees[index]);
+    resEmployees.push(tempEmployee);
+  }
+  return resEmployees;
+}
+
 controller.getIdentityByID = async function (employee_id) {
   let employee = await new Promise((resolve, reject) => {
     try {
@@ -256,6 +304,54 @@ controller.getIdentityByID = async function (employee_id) {
   });
   let tempEmployee = filterEmployeeRight(employee);
   return tempEmployee;
+}
+
+controller.getIdentityByName = async function (employee_name) {
+  let employees = await new Promise((resolve, reject) => {
+    try {
+      let connection = mysql_connect();
+      connection.connect();
+      console.log('oepn connection');
+      let querySql = 'SELECT\n' +
+        '  employee.id       AS id,\n' +
+        '  employee.name     AS name,\n' +
+        '  employee.password AS password,\n' +
+        '  admin.employee_id AS administrator_id,\n' +
+        '  personnel.employee_id AS personnel_id,\n' +
+        '  d1.id AS belong_department_id,\n' +
+        '  d1.name AS belong_department_name,\n' +
+        '  d1.code AS belong_department_code,\n' +
+        '  d2.id AS head_department_id,\n' +
+        '  d2.name AS head_department_name,\n' +
+        '  d2.code AS head_department_code\n' +
+        'FROM (employee\n' +
+        '  LEFT JOIN employee_administrator admin ON employee.id = admin.employee_id\n' +
+        '  LEFT JOIN employee_personnel personnel ON employee.id = personnel.employee_id\n' +
+        '  LEFT JOIN (employee_belong_department ebd INNER JOIN department d1 ON ebd.department_id = d1.id)\n' +
+        '    ON employee.id = ebd.employee_id\n' +
+        '  LEFT JOIN (employee_head_department ehd INNER JOIN department d2 ON ehd.department_id = d2.id)\n' +
+        '    ON employee.id = ehd.employee_id) WHERE employee.name=\'' + employee_name + '\';';
+      connection.query(querySql, function (err, results, fileds) {
+        if (err) {
+          console.log(JSON.stringify(err));
+          resolve(err);
+        } else {
+          console.log('get employee_name: ' + employee_name + ' employee: ' + JSON.stringify(results));
+          resolve(results);
+        }
+      });
+      console.log('close connection');
+      connection.end();
+    } catch (err) {
+      resolve(null);
+    }
+  });
+  let resEmployees = [];
+  for (let index in employees) {
+    let tempEmployee = filterEmployeeRight(employees[index]);
+    resEmployees.push(tempEmployee);
+  }
+  return resEmployees;
 }
 
 controller.getIdentityByDepartment = async function (department_id) {
