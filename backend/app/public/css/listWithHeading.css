@@ -19,7 +19,7 @@
 .listContent li {
     padding: 10px 30px 10px 10px;
     border-bottom: thin solid darkgray;
-    height: 150px;
+    /*height: 150px;*/
 }
 
 

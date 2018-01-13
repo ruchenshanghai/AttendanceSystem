@@ -122,11 +122,12 @@ let Router = function (router, absolute_path) {
         let updateID = Number(req.params.id);
         let positiveReg = /^[0-9]+$/;
         let updateLeave = req.body;
+        updateLeave.id = updateID;
         updateLeave.begin_date = new Date(updateLeave.begin_date);
         updateLeave.end_date = new Date(updateLeave.end_date);
         updateLeave.submit_status = Boolean(updateLeave.submit_status);
 
-        if (updateID !== updateLeave.id || !positiveReg.test(updateLeave.id) || setting.LEAVE_TYPE.indexOf(updateLeave.leave_type) === -1 || typeof updateLeave.leave_reason !== 'string' || updateLeave.begin_date.toString() === 'Invalid Date' || updateLeave.end_date.toString() === 'Invalid Date') {
+        if (!positiveReg.test(updateID) || setting.LEAVE_TYPE.indexOf(updateLeave.leave_type) === -1 || typeof updateLeave.leave_reason !== 'string' || updateLeave.begin_date.toString() === 'Invalid Date' || updateLeave.end_date.toString() === 'Invalid Date') {
           res.json({
             updateRes: 'format error'
           });
