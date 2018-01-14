@@ -192,7 +192,11 @@ let Router = function (router, absolute_path) {
         let positiveReg = /^[0-9]+$/;
         let updateTrip = req.body;
         updateTrip.id = updateID;
-        updateTrip.approve_status = Boolean(updateTrip.approve_status);
+        if (updateTrip.approve_status === 'true' || updateTrip.approve_status === true) {
+          updateTrip.approve_status = true;
+        } else {
+          updateTrip.approve_status = false;
+        }
         if (!positiveReg.test(updateID) || typeof updateTrip.approve_reason !== 'string') {
           res.json({
             updateRes: 'format error'
