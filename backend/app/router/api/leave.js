@@ -129,7 +129,11 @@ let Router = function (router, absolute_path) {
         updateLeave.id = updateID;
         updateLeave.begin_date = new Date(updateLeave.begin_date);
         updateLeave.end_date = new Date(updateLeave.end_date);
-        updateLeave.submit_status = Boolean(updateLeave.submit_status);
+        if (updateLeave.submit_status === 'true' || updateLeave.submit_status === true) {
+          updateLeave.submit_status = true;
+        } else {
+          updateLeave.submit_status = false;
+        }
 
         if (!positiveReg.test(updateID) || setting.LEAVE_TYPE.indexOf(updateLeave.leave_type) === -1 || typeof updateLeave.leave_reason !== 'string' || updateLeave.begin_date.toString() === 'Invalid Date' || updateLeave.end_date.toString() === 'Invalid Date') {
           res.json({
@@ -142,7 +146,11 @@ let Router = function (router, absolute_path) {
         updateLeave.end_date = moment(updateLeave.end_date).format('YYYY-MM-DD');
         if (req.session.user.adminRight === true) {
           updateLeave.employee_id = Number(updateLeave.employee_id);
-          updateLeave.approve_status = Boolean(updateLeave.approve_status);
+          if (updateLeave.approve_status === 'true' || updateLeave.approve_status === true) {
+            updateLeave.approve_status = true;
+          } else {
+            updateLeave.approve_status = false;
+          }
           if (!positiveReg.test(updateLeave.employee_id) || typeof updateLeave.approve_reason !== 'string') {
             res.json({
               updateRes: 'format error'
