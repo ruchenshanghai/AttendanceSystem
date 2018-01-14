@@ -69,7 +69,7 @@ let Router = function (router, absolute_path) {
         let insertTrip = req.body;
         insertTrip.begin_date = new Date(insertTrip.begin_date);
         insertTrip.end_date = new Date(insertTrip.end_date);
-        if (insertTrip.submit_status === 'true') {
+        if (insertTrip.submit_status === 'true' || insertTrip.submit_status === true) {
           insertTrip.submit_status = true;
         } else {
           insertTrip.submit_status = false;

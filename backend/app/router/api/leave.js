@@ -69,7 +69,7 @@ let Router = function (router, absolute_path) {
         let insertLeave = req.body;
         insertLeave.begin_date = new Date(insertLeave.begin_date);
         insertLeave.end_date = new Date(insertLeave.end_date);
-        if (insertLeave.submit_status === 'true') {
+        if (insertLeave.submit_status === 'true' || insertLeave.submit_status === true) {
           insertLeave.submit_status = true;
         } else {
           insertLeave.submit_status = false;
