@@ -69,7 +69,11 @@ let Router = function (router, absolute_path) {
         let insertLeave = req.body;
         insertLeave.begin_date = new Date(insertLeave.begin_date);
         insertLeave.end_date = new Date(insertLeave.end_date);
-        insertLeave.submit_status = Boolean(insertLeave.submit_status);
+        if (insertLeave.submit_status === 'true') {
+          insertLeave.submit_status = true;
+        } else {
+          insertLeave.submit_status = false;
+        }
         if (setting.LEAVE_TYPE.indexOf(insertLeave.leave_type) === -1 || typeof insertLeave.leave_reason !== 'string' || insertLeave.begin_date.toString() === 'Invalid Date' || insertLeave.end_date.toString() === 'Invalid Date') {
           res.json({
             insertRes: 'format error'
