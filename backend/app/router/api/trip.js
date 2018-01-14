@@ -69,7 +69,11 @@ let Router = function (router, absolute_path) {
         let insertTrip = req.body;
         insertTrip.begin_date = new Date(insertTrip.begin_date);
         insertTrip.end_date = new Date(insertTrip.end_date);
-        insertTrip.submit_status = Boolean(insertTrip.submit_status);
+        if (insertTrip.submit_status === 'true' || insertTrip.submit_status === true) {
+          insertTrip.submit_status = true;
+        } else {
+          insertTrip.submit_status = false;
+        }
         if (setting.TRIP_TYPE.indexOf(insertTrip.trip_type) === -1 || typeof insertTrip.trip_reason !== 'string' || insertTrip.begin_date.toString() === 'Invalid Date' || insertTrip.end_date.toString() === 'Invalid Date') {
           res.json({
             insertRes: 'format error'
