@@ -62,9 +62,10 @@ let Router = function (router, absolute_path) {
       } else if (req.session.user.adminRight === true || req.session.user.personnelRight === true) {
         let updateID = Number(req.params.id);
         let updateDepartment = req.body;
+        updateDepartment.id = updateID;
         let positiveReg = /^[0-9]+$/;
         try {
-          if (updateID !== updateDepartment.id || !positiveReg.test(updateDepartment.id) || updateDepartment.name == '' || updateDepartment.code == '') {
+          if (!positiveReg.test(updateID) || updateDepartment.name == '' || updateDepartment.code == '') {
             res.json({
               updateRes: 'format error'
             });

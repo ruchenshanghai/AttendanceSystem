@@ -40,6 +40,88 @@ let Router = function (router, absolute_path) {
         });
       }
     })
+    .get(temp_router_url + '/id/:id', async (req, res) => {
+      // get all employee data
+      if (req.session.isLogin !== true) {
+        res.json({
+          getRes: 'identity error'
+        });
+      } else if (req.session.user.personnelRight || req.session.user.adminRight) {
+        let tempID = Number(req.params.id);
+        if (tempID > 0 && tempID !== Infinity) {
+          let targetEmployee = await controller.getIdentityByID(tempID);
+          if (req.session.user.personnelRight) {
+            // delete password for personnel
+            delete targetEmployee.password;
+          }
+          res.json({
+            getRes: targetEmployee
+          });
+        } else {
+          res.json({
+            getRes: 'format error'
+          });
+        }
+      } else {
+        res.json({
+          getRes: 'right error'
+        });
+      }
+    })
+    .get(temp_router_url + '/name/:name', async (req, res) => {
+      // get all employee data
+      if (req.session.isLogin !== true) {
+        res.json({
+          getRes: 'identity error'
+        });
+      } else if (req.session.user.personnelRight || req.session.user.adminRight) {
+        let tempName = req.params.name;
+        let targetEmployees = await controller.getIdentityByName(tempName);
+        if (req.session.user.personnelRight) {
+          // delete password for personnel
+          for (let index in targetEmployees) {
+            delete targetEmployees[index].password;
+          }
+        }
+        res.json({
+          getRes: targetEmployees
+        });
+      } else {
+        res.json({
+          getRes: 'right error'
+        });
+      }
+    })
+    .get(temp_router_url + '/department/:department_id', async (req, res) => {
+      // get all employee data
+      if (req.session.isLogin !== true) {
+        res.json({
+          getRes: 'identity error'
+        });
+      } else if (req.session.user.personnelRight || req.session.user.adminRight) {
+        let tempID = Number(req.params.department_id);
+        if (tempID > 0 && tempID !== Infinity) {
+          let targetEmployees = await controller.getLeaveByDepartment(tempID);
+          if (req.session.user.personnelRight) {
+            // delete password for personnel
+            for (let index in targetEmployees) {
+              delete targetEmployees[index].password;
+            }
+          }
+          res.json({
+            getRes: targetEmployees
+          });
+        } else {
+          res.json({
+            getRes: 'format error'
+          });
+        }
+      } else {
+        res.json({
+          getRes: 'right error'
+        });
+      }
+    })
     .post(temp_router_url, async (req, res) => {
       let reqUser = req.body;
       if (req.session.isLogin !== true) {
@@ -72,6 +154,7 @@ let Router = function (router, absolute_path) {
     })
     .post(temp_router_url + '/OUT', async (req, res) => {
       delete req.session.user;
+      req.session.isLogin = false;
       res.json({
         logoutRes: 'success'
       });
@@ -85,7 +168,8 @@ let Router = function (router, absolute_path) {
         let positiveReg = /^[0-9]+$/;
         let updateID = Number(req.params.id);
         let updateEmployee = req.body;
-        if (!positiveReg.test(updateID) || updateEmployee.id !== updateID || updateEmployee.name == '') {
+        updateEmployee.id = updateID;
+        if (!positiveReg.test(updateID) || updateEmployee.name == '') {
           res.json({
             updateRes: 'format error'
           });

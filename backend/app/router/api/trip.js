@@ -122,11 +122,12 @@ let Router = function (router, absolute_path) {
         let updateID = Number(req.params.id);
         let positiveReg = /^[0-9]+$/;
         let updateTrip = req.body;
+        updateTrip.id = updateID;
         updateTrip.begin_date = new Date(updateTrip.begin_date);
         updateTrip.end_date = new Date(updateTrip.end_date);
         updateTrip.submit_status = Boolean(updateTrip.submit_status);
 
-        if (updateID !== updateTrip.id || !positiveReg.test(updateTrip.id) || setting.TRIP_TYPE.indexOf(updateTrip.trip_type) === -1 || typeof updateTrip.trip_reason !== 'string' || updateTrip.begin_date.toString() === 'Invalid Date' || updateTrip.end_date.toString() === 'Invalid Date') {
+        if (!positiveReg.test(updateID) || setting.TRIP_TYPE.indexOf(updateTrip.trip_type) === -1 || typeof updateTrip.trip_reason !== 'string' || updateTrip.begin_date.toString() === 'Invalid Date' || updateTrip.end_date.toString() === 'Invalid Date') {
           res.json({
             updateRes: 'format error'
           });
@@ -178,8 +179,9 @@ let Router = function (router, absolute_path) {
         let updateID = Number(req.params.id);
         let positiveReg = /^[0-9]+$/;
         let updateTrip = req.body;
+        updateTrip.id = updateID;
         updateTrip.approve_status = Boolean(updateTrip.approve_status);
-        if (updateID !== updateTrip.id || !positiveReg.test(updateTrip.id) || typeof updateTrip.approve_reason !== 'string') {
+        if (!positiveReg.test(updateID) || typeof updateTrip.approve_reason !== 'string') {
           res.json({
             updateRes: 'format error'
           });

@@ -145,3 +145,8 @@ footer {
     clear: right;
 }
 
+table, tr, th, td {
+    border: thin solid darkgray;
+    text-align: center;
+
+}

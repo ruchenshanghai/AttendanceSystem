@@ -85,34 +85,6 @@ let updateCheckOut = async function (employee_id, check_date, check_time, check_
 }
 
 
-// ok
-let getChecksByEmployeeIDs = async function (employeeIDArray) {
-  let checksRes = await new Promise((resolve, reject) => {
-    try {
-      let connection = mysql_connect();
-      connection.connect();
-      console.log('oepn connection');
-      let querySql = 'SELECT * FROM employee_check WHERE employee_id IN (' + employeeIDArray.toString() + ');';
-      // console.log(insertSql);
-      connection.query(querySql, function (err, results, fileds) {
-        if (err) {
-          console.log(JSON.stringify(err));
-          resolve(err);
-        } else {
-          console.log('query employee ids: ' + employeeIDArray.toString() + ', res: ' + JSON.stringify(results));
-          resolve(results);
-        }
-      });
-      console.log('close connection');
-      connection.end();
-    } catch (err) {
-      resolve('query error');
-    }
-  });
-  return checksRes;
-}
-
-
 let controller = {};
 // ok
 controller.checkIn = async function (employee_id) {
@@ -315,8 +287,34 @@ controller.getChecksBelongDepartment = async function (department_id) {
   for (let index in employees) {
     employeeIDArray.push(employees[index].employee_id)
   }
-  let checksArray = await getChecksByEmployeeIDs(employeeIDArray);
+  let checksArray = await this.getChecksByEmployeeIDs(employeeIDArray);
   return checksArray;
+}
+// ok
+controller.getChecksByEmployeeIDs = async function (employeeIDArray) {
+  let checksRes = await new Promise((resolve, reject) => {
+    try {
+      let connection = mysql_connect();
+      connection.connect();
+      console.log('oepn connection');
+      let querySql = 'SELECT * FROM employee_check WHERE employee_id IN (' + employeeIDArray.toString() + ');';
+      // console.log(insertSql);
+      connection.query(querySql, function (err, results, fileds) {
+        if (err) {
+          console.log(JSON.stringify(err));
+          resolve(err);
+        } else {
+          console.log('query employee ids: ' + employeeIDArray.toString() + ', res: ' + JSON.stringify(results));
+          resolve(results);
+        }
+      });
+      console.log('close connection');
+      connection.end();
+    } catch (err) {
+      resolve('query error');
+    }
+  });
+  return checksRes;
 }
 // own ok
 controller.getChecksByEmployeeID = async function (employee_id) {

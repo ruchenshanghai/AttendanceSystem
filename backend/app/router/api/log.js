@@ -37,7 +37,8 @@ let Router = function (router, absolute_path) {
         let positiveReg = /^[0-9]+$/;
         let updateID = Number(req.params.id);
         let updateLog = req.body;
-        if (!positiveReg.test(updateID) || updateID !== updateLog.id || updateLog.operate_type == '' || updateLog.operate_value == '') {
+        updateLog.id = updateID;
+        if (!positiveReg.test(updateID) || updateLog.operate_type == '' || updateLog.operate_value == '') {
           res.json({
             updateRes: 'format error'
           });
