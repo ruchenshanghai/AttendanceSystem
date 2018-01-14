@@ -422,13 +422,14 @@ let Router = function (router, absolute_path) {
         if (req.session.user.adminRight === true) {
           let updateID = Number(req.params.id);
           let updateCheck = req.body;
+          updateCheck.id = updateID;
           updateCheck.check_in_status = Boolean(updateCheck.check_in_status);
           updateCheck.check_out_status = Boolean(updateCheck.check_out_status);
           let positiveReg = /^[0-9]+$/;
           try {
             updateCheck.check_in_datetime = new Date(updateCheck.check_in_datetime);
             updateCheck.check_out_datetime = new Date(updateCheck.check_out_datetime);
-            if (updateID !== updateCheck.id || !positiveReg.test(updateCheck.id) || !positiveReg.test(updateCheck.employee_id) || updateCheck.check_in_datetime.toString() === 'Invalid Date' || updateCheck.check_out_datetime.toString() === 'Invalid Date') {
+            if (!positiveReg.test(updateID) || !positiveReg.test(updateCheck.employee_id) || updateCheck.check_in_datetime.toString() === 'Invalid Date' || updateCheck.check_out_datetime.toString() === 'Invalid Date') {
               res.json({
                 insertRes: 'format error'
               });

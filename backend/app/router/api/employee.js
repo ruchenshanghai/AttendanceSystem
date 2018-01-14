@@ -168,7 +168,8 @@ let Router = function (router, absolute_path) {
         let positiveReg = /^[0-9]+$/;
         let updateID = Number(req.params.id);
         let updateEmployee = req.body;
-        if (!positiveReg.test(updateID) || updateEmployee.id !== updateID || updateEmployee.name == '') {
+        updateEmployee.id = updateID;
+        if (!positiveReg.test(updateID) || updateEmployee.name == '') {
           res.json({
             updateRes: 'format error'
           });
