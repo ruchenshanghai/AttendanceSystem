@@ -61,18 +61,16 @@ let Router = function (router, absolute_path) {
           deleteRes: 'right error'
         });
       } else {
-        let deleteArray = req.body;
+        let deleteArray = [];
+        let deleteID = Number(req.params.id);
         let positiveReg = /^[0-9]+$/;
-        for (let index in deleteArray) {
-          deleteArray[index] = Number(deleteArray[index]);
-          if (!positiveReg.test(deleteArray[index])) {
-            res.json({
-              deleteRes: 'format error'
-            });
-            return;
-          }
+        if (!positiveReg.test(deleteID)) {
+          res.json({
+            deleteRes: 'format error'
+          });
+        } else {
+          deleteArray.push(deleteID);
         }
-        deleteArray = Array.from(new Set(deleteArray));
         let deleteRes = await controller.deleteLogs(deleteArray);
         res.json({
           deleteRes: deleteRes

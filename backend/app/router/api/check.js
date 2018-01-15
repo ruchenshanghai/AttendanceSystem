@@ -467,7 +467,7 @@ let Router = function (router, absolute_path) {
           let positiveReg = /^[0-9]+$/;
           if (!positiveReg.test(deleteID)) {
             res.json({
-              getRes: 'format error'
+              deleteRes: 'format error'
             });
           } else {
             deleteArray.push(deleteID);
@@ -483,7 +483,7 @@ let Router = function (router, absolute_path) {
           });
         } else {
           res.json({
-            getRes: 'right error'
+            deleteRes: 'right error'
           });
         }
       }
