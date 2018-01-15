@@ -455,25 +455,23 @@ let Router = function (router, absolute_path) {
         }
       }
     })
-    .delete(temp_router_url, async (req, res) => {
+    .delete(temp_router_url + '/:id', async (req, res) => {
       if (req.session.isLogin !== true) {
         res.json({
           getRes: 'identity error'
         });
       } else {
         if (req.session.user.adminRight === true) {
-          let deleteArray = req.body;
+          let deleteArray = [];
+          let deleteID = Number(req.params.id);
           let positiveReg = /^[0-9]+$/;
-          for (let index in deleteArray) {
-            deleteArray[index] = Number(deleteArray[index]);
-            if (!positiveReg.test(deleteArray[index])) {
-              res.json({
-                deleteRes: 'format error'
-              });
-              return;
-            }
+          if (!positiveReg.test(deleteID)) {
+            res.json({
+              getRes: 'format error'
+            });
+          } else {
+            deleteArray.push(deleteID);
           }
-          deleteArray = Array.from(new Set(deleteArray));
           let deleteRes = await controller.deleteChecks(deleteArray);
           let logObj = {
             id: deleteArray,

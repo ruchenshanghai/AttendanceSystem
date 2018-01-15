@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfc55324-b1d2-47bc-b378-1faa4729684b" name="Default" comment="basic query employee and check ok;&#10;fix bug: ajax string data, put check">
+    <list default="true" id="bfc55324-b1d2-47bc-b378-1faa4729684b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/controller/api/check.js" afterPath="$PROJECT_DIR$/controller/api/check.js" />
       <change beforePath="$PROJECT_DIR$/router/api/check.js" afterPath="$PROJECT_DIR$/router/api/check.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -43,7 +42,42 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="check.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/router/api/check.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="472" column="14" lean-forward="false" selection-start-line="472" selection-start-column="14" selection-end-line="472" selection-end-column="14" />
+              <folding>
+                <element signature="e#492#2150#0" expanded="false" />
+                <element signature="e#2219#3688#0" expanded="false" />
+                <element signature="e#3761#5217#0" expanded="false" />
+                <element signature="e#5299#6133#0" expanded="false" />
+                <element signature="e#6197#7142#0" expanded="false" />
+                <element signature="e#7228#8035#0" expanded="false" />
+                <element signature="e#8123#8933#0" expanded="false" />
+                <element signature="e#9054#10043#0" expanded="false" />
+                <element signature="e#10175#11593#0" expanded="false" />
+                <element signature="e#11650#12103#0" expanded="false" />
+                <element signature="e#12161#12621#0" expanded="false" />
+                <element signature="e#12670#14570#0" expanded="false" />
+                <element signature="e#14627#16430#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="check.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/api/check.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="208" column="44" lean-forward="true" selection-start-line="208" selection-start-column="44" selection-end-line="208" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -203,6 +237,12 @@
               <item name="app" type="b2602c69:ProjectViewProjectNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="router" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="b2602c69:ProjectViewProjectNode" />
@@ -391,7 +431,7 @@
       <workItem from="1515943080115" duration="160000" />
       <workItem from="1516005311262" duration="46000" />
       <workItem from="1516005848546" duration="673000" />
-      <workItem from="1516031324593" duration="1028000" />
+      <workItem from="1516031324593" duration="2906000" />
     </task>
     <task id="LOCAL-00001" summary="transfer">
       <created>1514720603392</created>
@@ -526,14 +566,22 @@
       <option name="project" value="LOCAL" />
       <updated>1515942938180</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="basic query employee and check ok;&#10;fix bug: ajax string data, put check">
+      <created>1516033474697</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1516033474697</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53478000" />
+    <option name="totallyTimeSpent" value="55356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1479" y="0" width="1037" height="1040" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -548,7 +596,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12830558" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2331048" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19392753" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -869,13 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/api/check.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="291" column="1" lean-forward="false" selection-start-line="291" selection-start-column="1" selection-end-line="291" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/api/employee.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -967,10 +1008,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/api/check.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="208" column="44" lean-forward="true" selection-start-line="208" selection-start-column="44" selection-end-line="208" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/router/api/check.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="430" column="81" lean-forward="false" selection-start-line="430" selection-start-column="81" selection-end-line="430" selection-end-column="81" />
+        <state relative-caret-position="496">
+          <caret line="472" column="14" lean-forward="false" selection-start-line="472" selection-start-column="14" selection-end-line="472" selection-end-column="14" />
           <folding>
             <element signature="e#492#2150#0" expanded="false" />
             <element signature="e#2219#3688#0" expanded="false" />
@@ -984,6 +1033,7 @@
             <element signature="e#11650#12103#0" expanded="false" />
             <element signature="e#12161#12621#0" expanded="false" />
             <element signature="e#12670#14570#0" expanded="false" />
+            <element signature="e#14627#16430#0" expanded="false" />
           </folding>
         </state>
       </provider>
