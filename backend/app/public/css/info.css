@@ -4,7 +4,7 @@ body {
 }
 
 #mainNav {
-    background-color: #1b6d85;
+    background-color: #010506;
     height: 50px;
 }
 
@@ -148,5 +148,20 @@ footer {
 table, tr, th, td {
     border: thin solid darkgray;
     text-align: center;
+    padding: 0;
+}
 
+.tableDateInput {
+    width: 150px;
+    text-align: center;
+}
+
+.tableTimeInput {
+    width: 80px;
+    text-align: center;
+}
+
+.tableNumberInput {
+    width: 50px;
+    text-align: center;
 }

@@ -23,7 +23,7 @@ let Router = function (router, absolute_path) {
         });
       }
     })
-    .put(temp_router_url + '/;id', async (req, res) => {
+    .put(temp_router_url + '/:id', async (req, res) => {
       // only for admin, update specific log, format: id, operate_type, operate_value
       if (req.session.isLogin !== true) {
         res.json({
@@ -50,7 +50,7 @@ let Router = function (router, absolute_path) {
         }
       }
     })
-    .delete(temp_router_url, async (req, res) => {
+    .delete(temp_router_url + '/:id', async (req, res) => {
       // only for admin, delete logs array
       if (req.session.isLogin !== true) {
         res.json({

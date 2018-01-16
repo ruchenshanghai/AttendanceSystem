@@ -433,6 +433,7 @@ let Router = function (router, absolute_path) {
           } else {
             updateCheck.check_out_status = false;
           }
+          console.log(JSON.stringify(updateCheck));
           let positiveReg = /^[0-9]+$/;
           try {
             updateCheck.check_in_time = new Date(updateCheck.check_date + ' ' + updateCheck.check_in_time);
@@ -444,6 +445,7 @@ let Router = function (router, absolute_path) {
             } else {
               // need update
               let updateRes = await controller.updateCheck(updateCheck.id, updateCheck.employee_id, updateCheck.check_in_time, updateCheck.check_in_status, updateCheck.check_out_time, updateCheck.check_out_status);
+              // updateCheck.res = updateRes; err sql \" "
               log.insertLog(req.session.user.id, 'modify_check', JSON.stringify(updateCheck));
               res.json({
                 insertRes: updateRes
