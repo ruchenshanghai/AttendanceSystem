@@ -235,7 +235,7 @@ let Router = function (router, absolute_path) {
           let logObj = {
             id: deleteID,
             res: deleteRes
-          }
+          };
           log.insertLog(req.session.user.id, 'del_user', JSON.stringify(logObj));
           res.json({
             deleteRes: deleteRes

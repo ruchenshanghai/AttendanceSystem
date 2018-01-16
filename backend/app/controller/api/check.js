@@ -173,9 +173,7 @@ controller.checkOutSpecifiedDatetime = async function (employee_id, datetime) {
 // admin ok
 controller.updateCheck = async function (employee_check_id, employee_id, check_in_datetime, check_in_status, check_out_datetime, check_out_status) {
   // UPDATE employee_check SET employee_id=4, check_date='2017-12-29', check_in_time='12:00:00', check_in_status=TRUE, check_out_time='20:00:00', check_out_status=FALSE WHERE id=3;
-  console.log('into1');
   let check_date = moment(check_in_datetime).format('YYYY-MM-DD');
-  console.log('into2');
   if (check_date !== moment(check_out_datetime).format('YYYY-MM-DD')) {
     return 'datetime error';
   } else {
@@ -187,6 +185,7 @@ controller.updateCheck = async function (employee_check_id, employee_id, check_i
         connection.connect();
         console.log('oepn connection');
         let updateSql = 'UPDATE employee_check SET employee_id=' + employee_id + ', check_date=\'' + check_date + '\', check_in_time=\'' + check_in_time + '\', check_in_status=' + check_in_status + ', check_out_time=\'' + check_out_time + '\', check_out_status=' + check_out_status + ' WHERE id=' + employee_check_id + ';';
+        console.log(updateSql);
         connection.query(updateSql, function (err, results, fileds) {
           if (err) {
             console.log(JSON.stringify(err));
@@ -213,6 +212,7 @@ controller.deleteChecks = async function (targetArray) {
       connection.connect();
       console.log('oepn connection');
       let deleteSql = 'DELETE FROM employee_check WHERE id IN (' + targetArray.toString() + ');';
+      console.log(deleteSql);
       connection.query(deleteSql, function (err, results, fileds) {
         if (err) {
           console.log(JSON.stringify(err));

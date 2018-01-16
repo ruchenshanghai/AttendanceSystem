@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/router/api/check.js" line="425" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc55324-b1d2-47bc-b378-1faa4729684b" name="Default" comment="">
+    <list default="true" id="bfc55324-b1d2-47bc-b378-1faa4729684b" name="Default" comment="basic query employee and check ok;&#10;fix bug: ajax string data, put error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/router/api/leave.js" afterPath="$PROJECT_DIR$/router/api/leave.js" />
-      <change beforePath="$PROJECT_DIR$/router/api/trip.js" afterPath="$PROJECT_DIR$/router/api/trip.js" />
+      <change beforePath="$PROJECT_DIR$/controller/api/check.js" afterPath="$PROJECT_DIR$/controller/api/check.js" />
+      <change beforePath="$PROJECT_DIR$/public/css/info.css" afterPath="$PROJECT_DIR$/public/css/info.css" />
+      <change beforePath="$PROJECT_DIR$/public/html/info.html" afterPath="$PROJECT_DIR$/public/html/info.html" />
+      <change beforePath="$PROJECT_DIR$/public/html/login.html" afterPath="$PROJECT_DIR$/public/html/login.html" />
+      <change beforePath="$PROJECT_DIR$/public/js/info.js" afterPath="$PROJECT_DIR$/public/js/info.js" />
+      <change beforePath="$PROJECT_DIR$/router/api/check.js" afterPath="$PROJECT_DIR$/router/api/check.js" />
+      <change beforePath="$PROJECT_DIR$/router/api/employee.js" afterPath="$PROJECT_DIR$/router/api/employee.js" />
+      <change beforePath="$PROJECT_DIR$/router/api/log.js" afterPath="$PROJECT_DIR$/router/api/log.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,37 +41,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="leave.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/api/leave.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="182" column="63" lean-forward="false" selection-start-line="182" selection-start-column="63" selection-end-line="182" selection-end-column="63" />
-              <folding>
-                <element signature="e#489#2140#0" expanded="false" />
-                <element signature="e#2189#4878#0" expanded="false" />
-                <element signature="e#4935#7973#0" expanded="false" />
-                <element signature="e#8038#10566#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trip.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/router/api/trip.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="193" column="33" lean-forward="false" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
-              <folding>
-                <element signature="e#487#2125#0" expanded="false" />
-                <element signature="e#2174#4805#0" expanded="false" />
-                <element signature="e#4862#7840#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -136,7 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/controller/api/log.js" />
         <option value="$PROJECT_DIR$/controller/api/setting.js" />
         <option value="$PROJECT_DIR$/controller/api/leave.js" />
         <option value="$PROJECT_DIR$/controller/api/trip.js" />
@@ -152,12 +130,13 @@
         <option value="$PROJECT_DIR$/controller/api/check.js" />
         <option value="$PROJECT_DIR$/router/api/employee.js" />
         <option value="$PROJECT_DIR$/router/api/department.js" />
-        <option value="$PROJECT_DIR$/router/api/check.js" />
-        <option value="$PROJECT_DIR$/router/api/log.js" />
         <option value="$PROJECT_DIR$/router/api/setting.js" />
         <option value="$PROJECT_DIR$/util/temp.js" />
         <option value="$PROJECT_DIR$/router/api/leave.js" />
         <option value="$PROJECT_DIR$/router/api/trip.js" />
+        <option value="$PROJECT_DIR$/router/api/check.js" />
+        <option value="$PROJECT_DIR$/router/api/log.js" />
+        <option value="$PROJECT_DIR$/controller/api/log.js" />
       </list>
     </option>
   </component>
@@ -240,10 +219,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -412,7 +391,15 @@
       <workItem from="1515914454705" duration="168000" />
       <workItem from="1515924759395" duration="348000" />
       <workItem from="1515936398710" duration="866000" />
-      <workItem from="1515942848371" duration="83000" />
+      <workItem from="1515942848371" duration="165000" />
+      <workItem from="1515943080115" duration="160000" />
+      <workItem from="1516005311262" duration="46000" />
+      <workItem from="1516005848546" duration="673000" />
+      <workItem from="1516031324593" duration="3302000" />
+      <workItem from="1516067528785" duration="1466000" />
+      <workItem from="1516069588714" duration="71000" />
+      <workItem from="1516072375795" duration="60000" />
+      <workItem from="1516073622900" duration="20000" />
     </task>
     <task id="LOCAL-00001" summary="transfer">
       <created>1514720603392</created>
@@ -540,15 +527,49 @@
       <option name="project" value="LOCAL" />
       <updated>1515925092043</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="basic query employee and check ok;&#10;fix bug: ajax string data">
+      <created>1515942938180</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1515942938180</updated>
+    </task>
+    <task id="LOCAL-00020" summary="basic query employee and check ok;&#10;fix bug: ajax string data, put check">
+      <created>1516033474697</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1516033474697</updated>
+    </task>
+    <task id="LOCAL-00021" summary="basic query employee and check ok;&#10;fix bug: ajax string data, delete check">
+      <created>1516035945691</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1516035945691</updated>
+    </task>
+    <task id="LOCAL-00022" summary="basic query employee and check ok;&#10;fix bug: ajax string data, delete error">
+      <created>1516036332067</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1516036332067</updated>
+    </task>
+    <task id="LOCAL-00023" summary="basic query employee and check ok;&#10;fix bug: ajax string data, put error">
+      <created>1516069640591</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1516069640592</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51489000" />
+    <option name="totallyTimeSpent" value="57369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1479" y="0" width="1037" height="1040" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -563,8 +584,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12830558" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19392753" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2331048" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19392753" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -626,7 +647,11 @@
     <MESSAGE value="basic query employee and check ok;&#10;fix bug: updateID" />
     <MESSAGE value="basic query employee and check ok;&#10;fix bug: updateID string data" />
     <MESSAGE value="basic query employee and check ok;&#10;fix bug: ajax string data" />
-    <option name="LAST_COMMIT_MESSAGE" value="basic query employee and check ok;&#10;fix bug: ajax string data" />
+    <MESSAGE value="basic query employee and check ok;&#10;fix bug: ajax string data, put check" />
+    <MESSAGE value="basic query employee and check ok;&#10;fix bug: ajax string data, delete check" />
+    <MESSAGE value="basic query employee and check ok;&#10;fix bug: ajax string data, delete error" />
+    <MESSAGE value="basic query employee and check ok;&#10;fix bug: ajax string data, put error" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic query employee and check ok;&#10;fix bug: ajax string data, put error" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -717,27 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/api/log.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/api/relation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="80" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="236" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/ea0ff14/44f7e751-81a3-4e72-b32c-bfe789a64da3/attendance.log">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -876,24 +880,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/ea0ff14/44f7e751-81a3-4e72-b32c-bfe789a64da3/attendance.employee">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/44f7e751-81a3-4e72-b32c-bfe789a64da3/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="48" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/api/employee.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="308" column="28" lean-forward="false" selection-start-line="308" selection-start-column="11" selection-end-line="308" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -911,41 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/api/check.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="291" column="1" lean-forward="false" selection-start-line="291" selection-start-column="1" selection-end-line="291" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/api/employee.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="161" column="55" lean-forward="false" selection-start-line="161" selection-start-column="55" selection-end-line="161" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/api/department.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="55" column="55" lean-forward="false" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/api/log.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="40" column="39" lean-forward="false" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/api/relation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="196" column="60" lean-forward="false" selection-start-line="196" selection-start-column="60" selection-end-line="196" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/api/setting.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -960,35 +915,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/api/check.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="425" column="37" lean-forward="false" selection-start-line="425" selection-start-column="22" selection-end-line="425" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/util/temp.js" />
     <entry file="file://$PROJECT_DIR$/router/api/leave.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="182" column="63" lean-forward="false" selection-start-line="182" selection-start-column="63" selection-end-line="182" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/api/relation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="215" column="35" lean-forward="true" selection-start-line="215" selection-start-column="35" selection-end-line="215" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/api/relation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="215" column="55" lean-forward="false" selection-start-line="215" selection-start-column="55" selection-end-line="215" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/api/employee.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/api/department.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="55" column="55" lean-forward="false" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/ea0ff14/44f7e751-81a3-4e72-b32c-bfe789a64da3/attendance.log">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/ea0ff14/44f7e751-81a3-4e72-b32c-bfe789a64da3/attendance.employee">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/api/check.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="208" column="44" lean-forward="true" selection-start-line="208" selection-start-column="44" selection-end-line="208" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/api/check.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="445" column="214" lean-forward="false" selection-start-line="445" selection-start-column="214" selection-end-line="445" selection-end-column="214" />
           <folding>
-            <element signature="e#489#2140#0" expanded="false" />
-            <element signature="e#2189#4878#0" expanded="false" />
-            <element signature="e#4935#7973#0" expanded="false" />
-            <element signature="e#8038#10566#0" expanded="false" />
+            <element signature="e#492#2150#0" expanded="false" />
+            <element signature="e#2219#3688#0" expanded="false" />
+            <element signature="e#3761#5217#0" expanded="false" />
+            <element signature="e#5299#6133#0" expanded="false" />
+            <element signature="e#6197#7142#0" expanded="false" />
+            <element signature="e#7228#8035#0" expanded="false" />
+            <element signature="e#8123#8933#0" expanded="false" />
+            <element signature="e#9054#10043#0" expanded="false" />
+            <element signature="e#10175#11593#0" expanded="false" />
+            <element signature="e#11650#12103#0" expanded="false" />
+            <element signature="e#12161#12621#0" expanded="false" />
+            <element signature="e#12670#14570#0" expanded="false" />
+            <element signature="e#16725#17647#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/api/employee.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="161" column="55" lean-forward="false" selection-start-line="161" selection-start-column="55" selection-end-line="161" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/api/log.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/api/log.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="45" column="46" lean-forward="true" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+          <folding>
+            <element signature="e#281#687#0" expanded="false" />
+            <element signature="e#1706#2436#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/router/api/trip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="193" column="33" lean-forward="false" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
+        <state relative-caret-position="272">
+          <caret line="249" column="58" lean-forward="false" selection-start-line="249" selection-start-column="58" selection-end-line="249" selection-end-column="58" />
           <folding>
             <element signature="e#487#2125#0" expanded="false" />
             <element signature="e#2174#4805#0" expanded="false" />
             <element signature="e#4862#7840#0" expanded="false" />
+            <element signature="e#7905#10409#0" expanded="false" />
+            <element signature="e#10469#11997#0" expanded="false" />
           </folding>
         </state>
       </provider>

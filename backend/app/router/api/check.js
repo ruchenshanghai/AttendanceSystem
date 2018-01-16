@@ -423,19 +423,28 @@ let Router = function (router, absolute_path) {
           let updateID = Number(req.params.id);
           let updateCheck = req.body;
           updateCheck.id = updateID;
-          updateCheck.check_in_status = Boolean(updateCheck.check_in_status);
-          updateCheck.check_out_status = Boolean(updateCheck.check_out_status);
+          if (updateCheck.check_in_status === true || updateCheck.check_in_status === 'true') {
+            updateCheck.check_in_status = true;
+          } else {
+            updateCheck.check_in_status = false;
+          }
+          if (updateCheck.check_out_status === true || updateCheck.check_out_status === 'true') {
+            updateCheck.check_out_status = true;
+          } else {
+            updateCheck.check_out_status = false;
+          }
+          console.log(JSON.stringify(updateCheck));
           let positiveReg = /^[0-9]+$/;
           try {
-            updateCheck.check_in_datetime = new Date(updateCheck.check_in_datetime);
-            updateCheck.check_out_datetime = new Date(updateCheck.check_out_datetime);
-            if (!positiveReg.test(updateID) || !positiveReg.test(updateCheck.employee_id) || updateCheck.check_in_datetime.toString() === 'Invalid Date' || updateCheck.check_out_datetime.toString() === 'Invalid Date') {
+            updateCheck.check_in_time = new Date(updateCheck.check_date + ' ' + updateCheck.check_in_time);
+            updateCheck.check_out_time = new Date(updateCheck.check_date + ' ' + updateCheck.check_out_time);
+            if (!positiveReg.test(updateID) || !positiveReg.test(updateCheck.employee_id) || updateCheck.check_in_time.toString() === 'Invalid Date' || updateCheck.check_out_time.toString() === 'Invalid Date') {
               res.json({
                 insertRes: 'format error'
               });
             } else {
               // need update
-              let updateRes = await controller.updateCheck(updateCheck.id, updateCheck.employee_id, updateCheck.check_in_datetime, updateCheck.check_in_status, updateCheck.check_out_datetime, updateCheck.check_out_status);
+              let updateRes = await controller.updateCheck(updateCheck.id, updateCheck.employee_id, updateCheck.check_in_time, updateCheck.check_in_status, updateCheck.check_out_time, updateCheck.check_out_status);
               // updateCheck.res = updateRes; err sql \" "
               log.insertLog(req.session.user.id, 'modify_check', JSON.stringify(updateCheck));
               res.json({
@@ -455,25 +464,23 @@ let Router = function (router, absolute_path) {
         }
       }
     })
-    .delete(temp_router_url, async (req, res) => {
+    .delete(temp_router_url + '/:id', async (req, res) => {
       if (req.session.isLogin !== true) {
         res.json({
           getRes: 'identity error'
         });
       } else {
         if (req.session.user.adminRight === true) {
-          let deleteArray = req.body;
+          let deleteArray = [];
+          let deleteID = Number(req.params.id);
           let positiveReg = /^[0-9]+$/;
-          for (let index in deleteArray) {
-            deleteArray[index] = Number(deleteArray[index]);
-            if (!positiveReg.test(deleteArray[index])) {
-              res.json({
-                deleteRes: 'format error'
-              });
-              return;
-            }
+          if (!positiveReg.test(deleteID)) {
+            res.json({
+              deleteRes: 'format error'
+            });
+          } else {
+            deleteArray.push(deleteID);
           }
-          deleteArray = Array.from(new Set(deleteArray));
           let deleteRes = await controller.deleteChecks(deleteArray);
           let logObj = {
             id: deleteArray,
@@ -485,7 +492,7 @@ let Router = function (router, absolute_path) {
           });
         } else {
           res.json({
-            getRes: 'right error'
+            deleteRes: 'right error'
           });
         }
       }
