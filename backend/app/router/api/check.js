@@ -423,8 +423,16 @@ let Router = function (router, absolute_path) {
           let updateID = Number(req.params.id);
           let updateCheck = req.body;
           updateCheck.id = updateID;
-          updateCheck.check_in_status = Boolean(updateCheck.check_in_status);
-          updateCheck.check_out_status = Boolean(updateCheck.check_out_status);
+          if (updateCheck.check_in_status === true || updateCheck.check_in_status === 'true') {
+            updateCheck.check_in_status = true;
+          } else {
+            updateCheck.check_in_status = false;
+          }
+          if (updateCheck.check_out_status === true || updateCheck.check_out_status === 'true') {
+            updateCheck.check_out_status = true;
+          } else {
+            updateCheck.check_out_status = false;
+          }
           let positiveReg = /^[0-9]+$/;
           try {
             updateCheck.check_in_time = new Date(updateCheck.check_date + ' ' + updateCheck.check_in_time);
@@ -436,7 +444,6 @@ let Router = function (router, absolute_path) {
             } else {
               // need update
               let updateRes = await controller.updateCheck(updateCheck.id, updateCheck.employee_id, updateCheck.check_in_time, updateCheck.check_in_status, updateCheck.check_out_time, updateCheck.check_out_status);
-              // updateCheck.res = updateRes; err sql \" "
               log.insertLog(req.session.user.id, 'modify_check', JSON.stringify(updateCheck));
               res.json({
                 insertRes: updateRes

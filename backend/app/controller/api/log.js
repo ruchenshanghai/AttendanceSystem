@@ -39,7 +39,7 @@ controller.updateLog = async function (id, employee_id, operate_type, operate_va
       connection.connect();
       console.log('oepn connection');
       let update_time = moment().format('YYYY-MM-DD HH:mm:ss');
-      let updateSql = 'UPDATE log SET employee_id=' + id + ', operate_type=\'' + operate_type + '\', operate_value=\'' + operate_value + '\', update_time=\'' + update_time + '\' WHERE id=' + id + ';';
+      let updateSql = 'UPDATE log SET employee_id=' + employee_id + ', operate_type=\'' + operate_type + '\', operate_value=\'' + operate_value + '\', update_time=\'' + update_time + '\' WHERE id=' + id + ';';
       // console.log(insertSql);
       connection.query(updateSql, function (err, results, fileds) {
         if (err) {
