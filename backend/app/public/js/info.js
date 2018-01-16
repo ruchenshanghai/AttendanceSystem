@@ -2193,7 +2193,7 @@ checkQuery.onclick = function () {
         idButton.onclick = function () {
           let a_tuple_list = getTuplesByValue(tuples, 'employee_id', idInput.value);
           list.innerHTML = '';
-          addTable(list, a_tuple_list, 'check', false);
+          addTable(list, a_tuple_list, 'check', true);
         };
 
         nameButton.onclick = function () {
@@ -2201,7 +2201,7 @@ checkQuery.onclick = function () {
             if (data) {
               console.log(data);
               list.innerHTML = '';
-              addTable(list, data['getRes'], 'check', false);
+              addTable(list, data['getRes'], 'check', true);
             }
             else {
               alert("No such");
@@ -2214,7 +2214,7 @@ checkQuery.onclick = function () {
             if (data) {
               console.log(data);
               list.innerHTML = '';
-              addTable(list, data['getRes'], 'check', false);
+              addTable(list, data['getRes'], 'check', true);
             }
             else {
               alert("No such");
@@ -2224,12 +2224,12 @@ checkQuery.onclick = function () {
         dateButton.onclick = function () {
           let a_tuple_list = getTuplesByValue(tuples, 'check_date', dateInput.value);
           list.innerHTML = '';
-          addTable(list, a_tuple_list, 'check', false);
+          addTable(list, a_tuple_list, 'check', true);
         };
         beginEndDateButton.onclick = function () {
           let a_tuple_list = getTuplesByValueInterval(tuples, 'check_date', beginDateInput.value, endDateInput.value);
           list.innerHTML = '';
-          addTable(list, a_tuple_list, 'check', false);
+          addTable(list, a_tuple_list, 'check', true);
         };
         /*
          headButton.onclick = function () {
